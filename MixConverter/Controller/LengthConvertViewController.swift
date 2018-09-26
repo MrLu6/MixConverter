@@ -150,7 +150,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         else if userInput.text!.isEmpty{
             if Attributes.instance.isScientific{
                 
-                displayResult.text = 0.scientificFormatted
+                displayResult.text = Double(0).scientificStyle
                 
             }else{
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
@@ -166,7 +166,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
              print("convertResult after format\(convertResult)")
             if Attributes.instance.isScientific {
                 //convertResult
-                displayResult.text = convertResult.scientificFormatted
+                displayResult.text = convertResult.scientificStyle
                 print("convertResult\(convertResult)")
                
             }
@@ -190,24 +190,22 @@ extension String{
     
 }
 
-extension Formatter{
+extension Double {
+    struct Number {
+        static var formatter = NumberFormatter()
+    }
     
-    static var scientific: NumberFormatter = {
+    var scientificStyle: String {
+        Number.formatter.numberStyle = .scientific
         print("I get called")
-        var formatter = NumberFormatter()
-        formatter.numberStyle = .scientific
-        formatter.positiveFormat = Attributes.instance.scientificNotationFormatArray[Attributes.instance.scientificPlaceIndex]
-        print("selectIndex in Formatter\(formatter.positiveFormat)")
-        formatter.exponentSymbol = "e"
-        return formatter
-    }()
-}
-
-extension Numeric {
-    var scientificFormatted: String {
-        return Formatter.scientific.string(for: self) ?? ""
+        Number.formatter.positiveFormat = Attributes.instance.scientificNotationFormatArray[Attributes.instance.scientificPlaceIndex]
+        Number.formatter.exponentSymbol = "e"
+        let number = NSNumber(value: self)
+        return Number.formatter.string(from :number) ?? description
     }
 }
+
+
 
 
 
