@@ -10,13 +10,7 @@ import UIKit
 
 class Attributes {
     
-    let TENTH = 0.1
-    let HUNDREDTH = 0.01
-    let THOUSANDTH = 0.001
-    
-    let TEN = 10
-    let HUNDRED = 100
-    let THOUSAND = 1000
+  
     
     let ONE_DIGIT = "%.1f"
     let TWO_DIGIT = "%.2f"
@@ -24,6 +18,8 @@ class Attributes {
     let FOUR_DIGIT = "%.4f"
     let FIVE_DIGIT = "%.5f"
     let SIX_DIGIT = "%.6f"
+    
+    let decimalPlaceFormatArray = ["%.0f", "%.1f", "%.2f", "%.3f", "%.4f", "%.5f", "%.6f", "%.7f", "%.8f", "%.9f"]
 
     
     static let instance = Attributes()

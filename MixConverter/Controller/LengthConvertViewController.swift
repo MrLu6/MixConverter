@@ -22,7 +22,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     var convertResult = 0.00
     var inputPickerIndex = 0
     var outputPickerIndex = 0
-    var correctInput = true
+    var decimalPlaceIndex = 2
     
     @IBOutlet weak var userInput: UITextField!
     
@@ -104,6 +104,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
+        decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
         inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
         outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
@@ -112,7 +113,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
         }
         
-        displayResult.text = String(format:Attributes.instance.TWO_DIGIT,convertResult)
+        displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
         
 
     }
