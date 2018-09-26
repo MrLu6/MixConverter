@@ -138,7 +138,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }else if inputPickerIndex == 0 && (userInput.text?.isDouble())!{
             convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
-            displayResult.text = String(format:Attributes.instance.TWO_DIGIT,convertResult)
+            displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
 
         }
         
