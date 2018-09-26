@@ -12,7 +12,6 @@
 		E21D8CFE215906F60014B506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21D8CFC215906F60014B506 /* Main.storyboard */; };
 		E21D8D00215906F80014B506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21D8CFF215906F80014B506 /* Assets.xcassets */; };
 		E21D8D03215906F80014B506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21D8D01215906F80014B506 /* LaunchScreen.storyboard */; };
-		E21D8D0F21590D040014B506 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E21D8D0E21590D040014B506 /* Default-568h@2x.png */; };
 		E21D8D112159114D0014B506 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D8D102159114D0014B506 /* Attributes.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		E21D8CFF215906F80014B506 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E21D8D02215906F80014B506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21D8D04215906F80014B506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E21D8D0E21590D040014B506 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E21D8D102159114D0014B506 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -42,7 +40,6 @@
 		E21D8CEC215906F60014B506 = {
 			isa = PBXGroup;
 			children = (
-				E21D8D0E21590D040014B506 /* Default-568h@2x.png */,
 				E21D8CF7215906F60014B506 /* MixConverter */,
 				E21D8D04215906F80014B506 /* Info.plist */,
 				E21D8CF6215906F60014B506 /* Products */,
@@ -161,7 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21D8D03215906F80014B506 /* LaunchScreen.storyboard in Resources */,
-				E21D8D0F21590D040014B506 /* Default-568h@2x.png in Resources */,
 				E21D8D00215906F80014B506 /* Assets.xcassets in Resources */,
 				E21D8CFE215906F60014B506 /* Main.storyboard in Resources */,
 			);

@@ -18,34 +18,23 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let milimeterToAllArray = [1, 0.1, 0.01, 0.001,0.0001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
     
-//    let centimeterToAllArray = [10, 1, 0.1, 0.01, 0.001, 1/25.4*10,  1/25.4/12 * 10,
-//                                1/25.4/12/3*10 1/25.4/12/3/1760*10]
     
     var convertResult = 0.00
     var inputPickerIndex = 0
     var outputPickerIndex = 0
+    var correctInput = true
     
     @IBOutlet weak var userInput: UITextField!
     
     @IBAction func userInputChanged(_ sender: UITextField) {
         
-        if Double(userInput.text!) == nil{
-           
-        }
-        else if inputPickerIndex == 0 && Double(userInput.text!) != nil{
-            convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
-            print("userInputChangeGetCall")
-        }
-
-        displayResult.text = String(format:Attributes.instance.SIX_DIGIT,convertResult)
+       displayConversionResult()
         
     }
     
     @IBOutlet weak var displayResult: UITextField!
     
-    
     @IBOutlet weak var inputUnitLabel: UILabel!
-    
     
     @IBOutlet weak var outputUnitLabel: UILabel!
     
@@ -74,6 +63,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         
         displayResult.isEnabled = false
+        decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
         
         
     }
@@ -107,6 +97,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         }
     }
     
+    
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         
@@ -120,7 +112,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
         }
         
-        displayResult.text = String(format:Attributes.instance.SIX_DIGIT,convertResult)
+        displayResult.text = String(format:Attributes.instance.TWO_DIGIT,convertResult)
         
 
     }
@@ -134,6 +126,38 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     }
     
     
+    func displayConversionResult(){
+        
+        if (!userInput.text!.isDouble() && !userInput.text!.isEmpty ){
+            
+            displayResult.text = String("Wrong input")
+        }
+        else if userInput.text!.isEmpty{
+            displayResult.text = String(format:Attributes.instance.TWO_DIGIT,0)
+            
+        }else if inputPickerIndex == 0 && (userInput.text?.isDouble())!{
+            convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
+            displayResult.text = String(format:Attributes.instance.TWO_DIGIT,convertResult)
+
+        }
+        
+    }
+    
+   
+    
+    
+    
+}
+
+extension String{
+    
+    func isDouble() -> Bool {
+        if Double(self) == nil && !self.isEmpty{
+            return false
+        }else{
+            return true
+        }
+    }
     
 }
 
