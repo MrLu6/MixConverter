@@ -24,6 +24,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     var outputPickerIndex = 0
     var decimalPlaceIndex = 2
     
+    
     @IBOutlet weak var userInput: UITextField!
     
     @IBAction func userInputChanged(_ sender: UITextField) {
@@ -45,6 +46,17 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     @IBOutlet weak var decimalPlacePicker: UIPickerView!
     
     
+    @IBAction func scientificNotationSwitch(_ sender: UISwitch) {
+        
+        if sender.isOn {
+            Attributes.instance.isScientific = true
+        }else{
+            Attributes.instance.isScientific = false
+        }
+        displayConversionResult()
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,6 +77,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
         
+//        print(0.05.scientificFormatted)
         
     }
 
@@ -105,6 +118,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
+        Attributes.instance.scientificPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
+        print("selectIndex \(Attributes.instance.scientificPlaceIndex)")
         
         inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
         outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
@@ -113,8 +128,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
         }
         
-        displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
-        
+        displayConversionResult()
 
     }
     
@@ -134,18 +148,32 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             displayResult.text = String("Wrong input")
         }
         else if userInput.text!.isEmpty{
-            displayResult.text = String(format:Attributes.instance.TWO_DIGIT,0)
+            if Attributes.instance.isScientific{
+                
+                displayResult.text = 0.scientificFormatted
+                
+            }else{
+                displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
+            }
             
         }else if inputPickerIndex == 0 && (userInput.text?.isDouble())!{
+            
             convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
-            displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
+            
+           
+             displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
+            convertResult = Double(displayResult.text!)!
+             print("convertResult after format\(convertResult)")
+            if Attributes.instance.isScientific {
+                //convertResult
+                displayResult.text = convertResult.scientificFormatted
+                print("convertResult\(convertResult)")
+               
+            }
 
         }
         
     }
-    
-   
-    
     
     
 }
@@ -160,6 +188,25 @@ extension String{
         }
     }
     
+}
+
+extension Formatter{
+    
+    static var scientific: NumberFormatter = {
+        print("I get called")
+        var formatter = NumberFormatter()
+        formatter.numberStyle = .scientific
+        formatter.positiveFormat = Attributes.instance.scientificNotationFormatArray[Attributes.instance.scientificPlaceIndex]
+        print("selectIndex in Formatter\(formatter.positiveFormat)")
+        formatter.exponentSymbol = "e"
+        return formatter
+    }()
+}
+
+extension Numeric {
+    var scientificFormatted: String {
+        return Formatter.scientific.string(for: self) ?? ""
+    }
 }
 
 
