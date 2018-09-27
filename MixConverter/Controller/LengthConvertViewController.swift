@@ -10,7 +10,7 @@ import UIKit
 
 class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
 
-    let lengthUnitsArray = ["Millimeter", "Centimeter", "Delimter", "Meter", "Kilometer", "Inch","Feet","Yard","Mile"]
+    let lengthUnitsArray = ["Millimeter", "Centimeter", "Decimter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
     
     let lengthUnitsShortArray = ["mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
     
@@ -18,7 +18,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let milimeterToAllArray = [1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
     
-    let centimeterToAllArray = [10, 1, 0,1, 0.01, 0.001, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
+    let centimeterToAllArray = [10, 1, 0.1, 0.01, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
     
     var convertResult = 0.00
     var convertResultString = String(0.00)
@@ -149,9 +149,15 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
             }
             
-        }else if inputPickerIndex == 0 && (userInput.text?.isDouble())!{
+        }else if inputPickerIndex == 0 || inputPickerIndex == 1 && (userInput.text?.isDouble())!{
             
-            convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+            if inputPickerIndex == 0{
+                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+                
+            }else if inputPickerIndex == 1{
+                print("I get called")
+                 convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+            }
         
             convertResultString = String(convertResult)
       
