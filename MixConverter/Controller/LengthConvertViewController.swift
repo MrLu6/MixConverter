@@ -151,13 +151,19 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }else if inputPickerIndex == 0 || inputPickerIndex == 1 && (userInput.text?.isDouble())!{
             
-            if inputPickerIndex == 0{
-                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+            switch inputPickerIndex {
+            
+            case 0:
                 
-            }else if inputPickerIndex == 1{
-                print("I get called")
-                 convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+            case 1:
+                
+                convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+                
+            default:
+                print("Not able to catch user selection")
             }
+           
         
             convertResultString = String(convertResult)
       
