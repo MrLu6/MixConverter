@@ -16,10 +16,12 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let decimalPlaceArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
-    let milimeterToAllArray = [1, 0.1, 0.01, 0.001,0.0001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
+    let milimeterToAllArray = [1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
     
+    let centimeterToAllArray = [10, 1, 0,1, 0.01, 0.001, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
     
     var convertResult = 0.00
+    var convertResultString = String(0.00)
     var inputPickerIndex = 0
     var outputPickerIndex = 0
     var decimalPlaceIndex = 2
@@ -77,13 +79,12 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
         
-//        print(0.05.scientificFormatted)
-        
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+       
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -111,22 +112,15 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     }
     
     
-    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        
         
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         Attributes.instance.scientificPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
-        print("selectIndex \(Attributes.instance.scientificPlaceIndex)")
         
         inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
         outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
-        
-        if inputPickerIndex == 0 {
-            convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
-        }
         
         displayConversionResult()
 
@@ -139,7 +133,6 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             }
         }
     }
-    
     
     func displayConversionResult(){
         
@@ -158,22 +151,52 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }else if inputPickerIndex == 0 && (userInput.text?.isDouble())!{
             
-            convertResult = Double(userInput.text!)!*milimeterToAllArray[outputPickerIndex]
-            
-           
-             displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
-            convertResult = Double(displayResult.text!)!
-             print("convertResult after format\(convertResult)")
+            convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+        
+            convertResultString = String(convertResult)
+      
             if Attributes.instance.isScientific {
-                //convertResult
-                displayResult.text = convertResult.scientificStyle
-                print("convertResult\(convertResult)")
-               
+                
+                convertResultString = convertResult.scientificStyle
+                displayResult.text = scientificToDecimal()
+
+            }else{
+                displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
+                convertResult = Double(displayResult.text!)!
             }
 
         }
         
     }
+    
+    
+    func scientificToDecimal() -> String{
+        
+        if let eIndex = convertResultString.range(of: "e")?.lowerBound {
+            var powerStartIndex = convertResultString.index(eIndex, offsetBy: 1)
+            var power = convertResultString[powerStartIndex..<convertResultString.endIndex]
+            
+            var convertResultUpToE = String(convertResultString[..<eIndex])
+            
+            if !convertResultUpToE.contains("."){
+                convertResultUpToE.append(".")
+            }
+            
+            while convertResultUpToE.count < decimalPlaceIndex + 2 {
+                convertResultUpToE.append("0")
+            }
+            
+           
+            let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + 2)
+            
+            let roundDecimal = convertResultUpToE[convertResultString.startIndex..<converResultStringEndIndex]
+            
+            return String(roundDecimal+"e"+power)
+            
+        }
+        return convertResultString
+    }
+    
     
     
 }
@@ -197,12 +220,11 @@ extension Double {
     
     var scientificStyle: String {
         Number.formatter.numberStyle = .scientific
-        print("I get called")
-        Number.formatter.positiveFormat = Attributes.instance.scientificNotationFormatArray[Attributes.instance.scientificPlaceIndex]
         Number.formatter.exponentSymbol = "e"
         let number = NSNumber(value: self)
         return Number.formatter.string(from :number) ?? description
     }
+    
 }
 
 
