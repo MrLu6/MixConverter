@@ -10,15 +10,19 @@ import UIKit
 
 class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
 
-    let lengthUnitsArray = ["Millimeter", "Centimeter", "Decimter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
+    let lengthUnitsArray = ["Nanometer", "MicroMeter", "Millimeter", "Centimeter", "Decimter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
     
-    let lengthUnitsShortArray = ["mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
+    let lengthUnitsShortArray = ["nm", "μm", "mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
     
     let decimalPlaceArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
-    let milimeterToAllArray = [1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
+    let nanometerToAllArray = [1, 0.001, 0.000001, 0.0000001, 0.00000001 ,0.000000001, 0.000000000001, 1/0.00000000254, 1/0.0000000000254/12, 1/0.0000000000254/12/3, 1/0.000000000000000000254/12/3/1760]
     
-    let centimeterToAllArray = [10, 1, 0.1, 0.01, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
+    let microMeterToAllArray = [1000, 1, 0.001, 0.0001, 0.00001,0.000001, 0.000000001, 1/0.00000254, 1/0.0000000254/12, 1/0.0000000254/12/3, 1/0.000000000000000254/12/3/1760]
+    
+    let milimeterToAllArray = [1000000, 1000,1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
+    
+    let centimeterToAllArray = [10000000, 10000,10, 1, 0.1, 0.01, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
     
     var convertResult = 0.00
     var convertResultString = String(0.00)
@@ -149,15 +153,21 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
             }
             
-        }else if inputPickerIndex == 0 || inputPickerIndex == 1 && (userInput.text?.isDouble())!{
+        }else if inputPickerIndex >= 0 && inputPickerIndex <= 3 && (userInput.text?.isDouble())!{
             
             switch inputPickerIndex {
             
             case 0:
+                convertResult = Double(userInput.text!)! * nanometerToAllArray[outputPickerIndex]
+                print("nanoResult\(convertResult)")
                 
-                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
             case 1:
+                convertResult = Double(userInput.text!)! * microMeterToAllArray[outputPickerIndex]
+               
+            case 2:
+                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
                 
+            case 3:
                 convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
                 
             default:
@@ -170,6 +180,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             if Attributes.instance.isScientific {
                 
                 convertResultString = convertResult.scientificStyle
+                print("nanoReulst in scientific" + convertResultString)
                 displayResult.text = scientificToDecimal()
 
             }else{
