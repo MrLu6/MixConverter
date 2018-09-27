@@ -16,9 +16,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let decimalPlaceArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
     
-    let nanometerToAllArray = [1, 0.001, 0.000001, 0.0000001, 0.00000001 ,0.000000001, 0.000000000001, 1/0.00000000254, 1/0.0000000000254/12, 1/0.0000000000254/12/3, 1/0.000000000000000000254/12/3/1760]
+    let nanometerToAllArray = [1, 0.001, 0.000001, 0.0000001, 0.00000001 ,0.000000001, 0.000000000001, 1/25400000, 1/25400000/12, 1/25400000/12/3, 1/25400000/12/3/1760] as [Double]
     
-    let microMeterToAllArray = [1000, 1, 0.001, 0.0001, 0.00001,0.000001, 0.000000001, 1/0.00000254, 1/0.0000000254/12, 1/0.0000000254/12/3, 1/0.000000000000000254/12/3/1760]
+    let microMeterToAllArray = [1000, 1, 0.001, 0.0001, 0.00001,0.000001, 0.000000001, 1/25400, 1/25400/12, 1/25400/12/3, 1/25400/12/3/1760] as [Double]
     
     let milimeterToAllArray = [1000000, 1000,1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
     
@@ -74,11 +74,6 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         decimalPlacePicker.delegate = self
         decimalPlacePicker.dataSource = self
-        
-        inputPicker.tag = 1
-        outputPicker.tag = 2
-        decimalPlacePicker.tag = 3
-        
         
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
@@ -191,6 +186,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         }
         
     }
+    
+    
     
     
     func scientificToDecimal() -> String{
