@@ -29,6 +29,14 @@ class HomeViewController: UIViewController {
         
         let btnTitle = sender.currentTitle!
         self.revealViewController().rearViewController.performSegue(withIdentifier: btnTitle, sender: self.revealViewController().rearViewController)
+        if sender.tag == 1 {
+            Attributes.instance.LENGTH_COVERT_IS_ON = true
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+        }else if sender.tag == 2{
+            Attributes.instance.MASS_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            
+        }
     }
     
 }

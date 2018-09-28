@@ -36,6 +36,14 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let mileToAllArray = [25400000 * 12 * 3 * 1760, 25400 * 12 * 3 * 1760, 25.4 * 12 * 3 * 1760, 2.54 * 12 * 3 * 1760, 0.254 * 12 * 3 * 1760, 0.0254 * 12 * 3 * 1760, 0.0000254 * 12 * 3 * 1760, 63360, 5280, 1760, 1 ] as [Double]
     
+    let massUnitsArray = ["Nanogram","Microgram", "Milligram", "Gram", "Kilogram", "Metric Ton", "Ounce", "Pound", "Stone", "US ton", "Imperial ton"]
+    
+    let massUnitsShortArray = ["ng", "μg", "mg", "g", "kg", "Metric Ton", "oz", "lb", "Stone", "US ton", "Imperial ton"]
+    
+    let nanogramToAllArray = [1, 0.001, 0.0000001, 0.000000001, 0.000000000001, 0.000000000000001, 0.000000000000001, 1/28349500000, 1/28349500000/16, 1/28349500000/16/14, 1/28349500000/16/14/(20000/14), 1/28349500000/16/14/160 ] as [Double]
+    
+    let microgramToAllArray = [1000, 1, 0.001, 0.0000001, 0.0000000001, 0.0000000000001, 1/2834950, 1/2834950/16, 1/2834950/16/14, 1/2834950/16/14/(20000/14), 1/2834950/16/14/160] as [Double]
+    
     
     var convertResult = 0.00
     
@@ -103,6 +111,18 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
         
+        if Attributes.instance.LENGTH_COVERT_IS_ON {
+            
+            inputUnitLabel.text = "nm"
+            outputUnitLabel.text = "nm"
+            
+        }else if Attributes.instance.MASS_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = "ng"
+            outputUnitLabel.text = "ng"
+            
+        }
+        
         backToMenu()
         
     }
@@ -124,7 +144,11 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }else {
             
-            return lengthUnitsArray.count
+            if Attributes.instance.LENGTH_COVERT_IS_ON {
+              return lengthUnitsArray.count
+            }
+            
+            return massUnitsArray.count
             
         }
         
@@ -138,8 +162,12 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }
         else {
+            if Attributes.instance.LENGTH_COVERT_IS_ON {
+                return lengthUnitsArray[row]
+                
+            }
             
-            return lengthUnitsArray[row]
+            return massUnitsArray[row]
             
         }
     }
@@ -150,9 +178,14 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
-        inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
-        outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
-        
+        if Attributes.instance.LENGTH_COVERT_IS_ON {
+            inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
+            outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
+        }else if Attributes.instance.MASS_CONVERT_IS_ON {
+            inputUnitLabel.text = massUnitsArray[inputPickerIndex]
+            outputUnitLabel.text = massUnitsShortArray[outputPickerIndex]
+        }
+     
         displayConversionResult()
 
     }
@@ -187,7 +220,12 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
         }else {
             
-            calConvertResult()
+            if Attributes.instance.LENGTH_COVERT_IS_ON {
+                 calLengthConvertResult()
+            }else if Attributes.instance.MASS_CONVERT_IS_ON {
+                calMassConvertResult()
+            }
+           
         
             convertResultString = String(convertResult)
       
@@ -209,7 +247,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     }
     
     
-    func calConvertResult() {
+    func calLengthConvertResult() {
         
         switch inputPickerIndex {
             
@@ -252,6 +290,24 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
     }
     
+    func calMassConvertResult() {
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * nanogramToAllArray[outputPickerIndex]
+        
+        case 1:
+            convertResult = Double(userInput.text!)! * microgramToAllArray[outputPickerIndex]
+        
+        default:
+            print("Not able to catch user selection")
+            
+            
+        }
+        
+        
+    }
     
     
     

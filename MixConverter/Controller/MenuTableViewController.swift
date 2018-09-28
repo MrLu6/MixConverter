@@ -24,6 +24,17 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.row == 1 {
+            Attributes.instance.LENGTH_COVERT_IS_ON = true
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+        }else if indexPath.row == 2 {
+            
+            Attributes.instance.MASS_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+
+        }
+        
         self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)
     }
     

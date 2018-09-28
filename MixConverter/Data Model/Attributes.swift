@@ -18,6 +18,10 @@ class Attributes {
   
     let DECIMAL_PLACE_FORMAT_ARRAY = ["%.0f", "%.1f", "%.2f", "%.3f", "%.4f", "%.5f", "%.6f", "%.7f", "%.8f", "%.9f"]
     
+    var LENGTH_COVERT_IS_ON = false
+    
+    var MASS_CONVERT_IS_ON = false
+    
     let USER_INPUT_WARNING = "Your Input Is Not A Number"
 
     static let instance = Attributes()
