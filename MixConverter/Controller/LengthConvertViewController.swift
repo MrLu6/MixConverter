@@ -49,6 +49,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     var isScientific = false
     
+    
+    @IBOutlet weak var MenuButton: UIBarButtonItem!
+    
     @IBOutlet weak var userInput: UITextField!
     
     @IBAction func userInputChanged(_ sender: UITextField) {
@@ -99,6 +102,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
+        
+        backToMenu()
         
     }
 
@@ -279,6 +284,15 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         return convertResultString
         
     }
+    
+    func backToMenu(){
+        MenuButton.target = self.revealViewController()
+        MenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.revealViewController().rearViewRevealWidth = 100
+        
+    view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+
     
     
     

@@ -13,6 +13,9 @@
 		E21D8D00215906F80014B506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21D8CFF215906F80014B506 /* Assets.xcassets */; };
 		E21D8D03215906F80014B506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21D8D01215906F80014B506 /* LaunchScreen.storyboard */; };
 		E21D8D112159114D0014B506 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D8D102159114D0014B506 /* Attributes.swift */; };
+		E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */; };
+		E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */; };
+		E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,11 @@
 		E21D8D02215906F80014B506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21D8D04215906F80014B506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D8D102159114D0014B506 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixConverter-Bridging-Header.h"; sourceTree = "<group>"; };
+		E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				E21D8CFA215906F60014B506 /* LengthConvertViewController.swift */,
+				E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */,
+				E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -91,10 +101,13 @@
 		E21D8D0D2159085B0014B506 /* Supporting Documents */ = {
 			isa = PBXGroup;
 			children = (
+				E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */,
+				E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */,
 				E21D8D01215906F80014B506 /* LaunchScreen.storyboard */,
 				E21D8CFF215906F80014B506 /* Assets.xcassets */,
 				E21D8CFC215906F60014B506 /* Main.storyboard */,
 				E21D8CF8215906F60014B506 /* AppDelegate.swift */,
+				E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */,
 			);
 			path = "Supporting Documents";
 			sourceTree = "<group>";
@@ -131,6 +144,7 @@
 				TargetAttributes = {
 					E21D8CF4215906F60014B506 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -170,9 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */,
 				E21D8CFB215906F60014B506 /* LengthConvertViewController.swift in Sources */,
+				E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */,
 				E21D8D112159114D0014B506 /* Attributes.swift in Sources */,
 				E21D8CF9215906F60014B506 /* AppDelegate.swift in Sources */,
+				E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +333,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WB36NUBE5M;
 				INFOPLIST_FILE = MixConverter/Info.plist;
@@ -325,6 +343,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CHENGJUN-LU.MixConverter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MixConverter/Supporting Documents/MixConverter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,6 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WB36NUBE5M;
 				INFOPLIST_FILE = MixConverter/Info.plist;
@@ -343,6 +364,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.CHENGJUN-LU.MixConverter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MixConverter/Supporting Documents/MixConverter-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
