@@ -36,11 +36,17 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let mileToAllArray = [25400000 * 12 * 3 * 1760, 25400 * 12 * 3 * 1760, 25.4 * 12 * 3 * 1760, 2.54 * 12 * 3 * 1760, 0.254 * 12 * 3 * 1760, 0.0254 * 12 * 3 * 1760, 0.0000254 * 12 * 3 * 1760, 63360, 5280, 1760, 1 ] as [Double]
     
+    
     var convertResult = 0.00
+    
     var convertResultString = String(0.00)
+    
     var inputPickerIndex = 0
+    
     var outputPickerIndex = 0
+    
     var decimalPlaceIndex = 2
+    
     var isScientific = false
     
     @IBOutlet weak var userInput: UITextField!
@@ -174,7 +180,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 
             }
             
-        }else if inputPickerIndex >= 0 && inputPickerIndex <= 10 && (userInput.text?.isDouble())!{
+        }else {
             
             calConvertResult()
         
@@ -303,6 +309,8 @@ extension Double {
     }
     
 }
+
+
 
 
 
