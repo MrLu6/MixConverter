@@ -43,7 +43,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     var inputPickerIndex = 0
     var outputPickerIndex = 0
     var decimalPlaceIndex = 2
-    
+    var isScientific = false
     
     @IBOutlet weak var userInput: UITextField!
     
@@ -65,14 +65,18 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     @IBOutlet weak var decimalPlacePicker: UIPickerView!
     
-    
     @IBAction func scientificNotationSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
-            Attributes.instance.isScientific = true
+            
+            isScientific = true
+            
         }else{
-            Attributes.instance.isScientific = false
+            
+            isScientific = false
+            
         }
+        
         displayConversionResult()
         
         
@@ -92,7 +96,6 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
         
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,9 +110,13 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 3 {
+            
             return decimalPlaceArray.count
+            
         }else {
+            
             return lengthUnitsArray.count
+            
         }
         
     }
@@ -117,20 +124,22 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 3 {
+            
             return decimalPlaceArray[row]
+            
         }
         else {
+            
             return lengthUnitsArray[row]
+            
         }
     }
-    
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
-        Attributes.instance.scientificPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
         inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
         outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
@@ -140,11 +149,13 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
         for txt in self.view.subviews {
             if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
                 txt.resignFirstResponder()
             }
         }
+        
     }
     
     func displayConversionResult(){
@@ -152,71 +163,82 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         if (!userInput.text!.isDouble() && !userInput.text!.isEmpty ){
             
             displayResult.text = String("Wrong input")
+            
         }
         else if userInput.text!.isEmpty{
-            if Attributes.instance.isScientific{
+            if isScientific{
                 
                 displayResult.text = Double(0).scientificStyle
                 
             }else{
+                
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
+                
             }
             
         }else if inputPickerIndex >= 0 && inputPickerIndex <= 10 && (userInput.text?.isDouble())!{
             
-            switch inputPickerIndex {
-            
-            case 0:
-                convertResult = Double(userInput.text!)! * nanometerToAllArray[outputPickerIndex]
-              
-                
-            case 1:
-                convertResult = Double(userInput.text!)! * microMeterToAllArray[outputPickerIndex]
-               
-            case 2:
-                convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
-                
-            case 3:
-                convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
-            case 4:
-                convertResult = Double(userInput.text!)! * decimeterToAllArray[outputPickerIndex]
-                
-            case 5:
-                convertResult = Double(userInput.text!)! * meterToAllArray[outputPickerIndex]
-                
-            case 6:
-                convertResult = Double(userInput.text!)! * kilometerToAllArray[outputPickerIndex]
-                
-            case 7:
-                convertResult = Double(userInput.text!)! * inchToAllArray[outputPickerIndex]
-                
-            case 8:
-                convertResult = Double(userInput.text!)! * footToAllArray[outputPickerIndex]
-                
-            case 9:
-                convertResult = Double(userInput.text!)! * yardToAllArray[outputPickerIndex]
-                
-            case 10:
-                convertResult = Double(userInput.text!)! * mileToAllArray[outputPickerIndex]
-                
-            default:
-                print("Not able to catch user selection")
-            }
-           
+            calConvertResult()
         
             convertResultString = String(convertResult)
       
-            if Attributes.instance.isScientific {
+            if isScientific {
                 
                 convertResultString = convertResult.scientificStyle
-                print("nanoReulst in scientific" + convertResultString)
+                
                 displayResult.text = scientificToDecimal()
 
             }else{
+                
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
+                
                 convertResult = Double(displayResult.text!)!
             }
 
+        }
+        
+    }
+    
+    
+    func calConvertResult() {
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * nanometerToAllArray[outputPickerIndex]
+            
+        case 1:
+            convertResult = Double(userInput.text!)! * microMeterToAllArray[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+            
+        case 4:
+            convertResult = Double(userInput.text!)! * decimeterToAllArray[outputPickerIndex]
+            
+        case 5:
+            convertResult = Double(userInput.text!)! * meterToAllArray[outputPickerIndex]
+            
+        case 6:
+            convertResult = Double(userInput.text!)! * kilometerToAllArray[outputPickerIndex]
+            
+        case 7:
+            convertResult = Double(userInput.text!)! * inchToAllArray[outputPickerIndex]
+            
+        case 8:
+            convertResult = Double(userInput.text!)! * footToAllArray[outputPickerIndex]
+            
+        case 9:
+            convertResult = Double(userInput.text!)! * yardToAllArray[outputPickerIndex]
+            
+        case 10:
+            convertResult = Double(userInput.text!)! * mileToAllArray[outputPickerIndex]
+            
+        default:
+            print("Not able to catch user selection")
         }
         
     }
@@ -227,8 +249,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     func scientificToDecimal() -> String{
         
         if let eIndex = convertResultString.range(of: "e")?.lowerBound {
-            var powerStartIndex = convertResultString.index(eIndex, offsetBy: 1)
-            var power = convertResultString[powerStartIndex..<convertResultString.endIndex]
+            
+            let powerStartIndex = convertResultString.index(eIndex, offsetBy: 1)
+            let power = convertResultString[powerStartIndex..<convertResultString.endIndex]
             
             var convertResultUpToE = String(convertResultString[..<eIndex])
             
@@ -248,7 +271,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             return String(roundDecimal+"e"+power)
             
         }
+        
         return convertResultString
+        
     }
     
     
