@@ -13,6 +13,7 @@
 		E21D8D00215906F80014B506 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E21D8CFF215906F80014B506 /* Assets.xcassets */; };
 		E21D8D03215906F80014B506 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E21D8D01215906F80014B506 /* LaunchScreen.storyboard */; };
 		E21D8D112159114D0014B506 /* Attributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E21D8D102159114D0014B506 /* Attributes.swift */; };
+		E28B9E59215EC21F006A1C7D /* LengthAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */; };
 		E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */; };
 		E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */; };
 		E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */; };
@@ -27,6 +28,7 @@
 		E21D8D02215906F80014B506 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E21D8D04215906F80014B506 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E21D8D102159114D0014B506 /* Attributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attributes.swift; sourceTree = "<group>"; };
+		E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthAttributes.swift; sourceTree = "<group>"; };
 		E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixConverter-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				E21D8D102159114D0014B506 /* Attributes.swift */,
+				E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */,
+				E28B9E59215EC21F006A1C7D /* LengthAttributes.swift in Sources */,
 				E21D8CFB215906F60014B506 /* LengthConvertViewController.swift in Sources */,
 				E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */,
 				E21D8D112159114D0014B506 /* Attributes.swift in Sources */,

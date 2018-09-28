@@ -10,31 +10,6 @@ import UIKit
 
 class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
 
-    let lengthUnitsArray = ["Nanometer", "MicroMeter", "Millimeter", "Centimeter", "Decimeter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
-    
-    let lengthUnitsShortArray = ["nm", "μm", "mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
-    
-    let nanometerToAllArray = [1, 0.001, 0.000001, 0.0000001, 0.00000001 ,0.000000001, 0.000000000001, 1/25400000, 1/25400000/12, 1/25400000/12/3, 1/25400000/12/3/1760] as [Double]
-    
-    let microMeterToAllArray = [1000, 1, 0.001, 0.0001, 0.00001,0.000001, 0.000000001, 1/25400, 1/25400/12, 1/25400/12/3, 1/25400/12/3/1760] as [Double]
-    
-    let milimeterToAllArray = [1000000, 1000,1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
-    
-    let centimeterToAllArray = [10000000, 10000,10, 1, 0.1, 0.01, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
-    
-    let decimeterToAllArray = [100000000, 100000,100, 10, 1, 0.1, 0.0001, 1/0.254, 1/0.254/12, 1/0.254/12/3, 1/0.254/12/3/1760]
-    
-    let meterToAllArray = [1000000000, 1000000,1000, 100, 10, 1, 0.001, 1/0.0254, 1/0.0254/12, 1/0.0254/12/3, 1/0.0254/12/3/1760]
-    
-    let kilometerToAllArray = [1000000000000, 1000000000,1000000, 100000, 10000, 1000, 1, 1/0.0000254, 1/0.0000254/12, 1/0.0000254/12/3, 1/0.0000254/12/3/1760]
-    
-    let inchToAllArray = [25400000, 25400, 25.4, 2.54, 0.254, 0.0254, 0.0000254, 1, 1/12, 1/12 * (1/3), 1/12*(1/3)*(1/1760) ] as [Double]
-    
-    let footToAllArray = [25400000 * 12, 25400 * 12, 25.4 * 12, 2.54 * 12, 0.254 * 12, 0.0254 * 12, 0.0000254 * 12, 12, 1, 1/3, (1/3)*(1/1760) ] as [Double]
-    
-    let yardToAllArray = [25400000 * 12 * 3, 25400 * 12 * 3, 25.4 * 12 * 3, 2.54 * 12 * 3, 0.254 * 12 * 3, 0.0254 * 12 * 3, 0.0000254 * 12 * 3, 36, 3, 1, 1/1760 ] as [Double]
-    
-    let mileToAllArray = [25400000 * 12 * 3 * 1760, 25400 * 12 * 3 * 1760, 25.4 * 12 * 3 * 1760, 2.54 * 12 * 3 * 1760, 0.254 * 12 * 3 * 1760, 0.0254 * 12 * 3 * 1760, 0.0000254 * 12 * 3 * 1760, 63360, 5280, 1760, 1 ] as [Double]
     
     let massUnitsArray = ["Nanogram","Microgram", "Milligram", "Gram", "Kilogram", "Metric Ton", "Ounce", "Pound", "Stone", "US ton", "Imperial ton"]
     
@@ -155,7 +130,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         }else {
             
             if Attributes.instance.LENGTH_COVERT_IS_ON {
-              return lengthUnitsArray.count
+                
+              return LengthAttributes.instance.LENGTH_UNITS_ARRAY.count
+                
             }
             
             return massUnitsArray.count
@@ -173,8 +150,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         }
         else {
             if Attributes.instance.LENGTH_COVERT_IS_ON {
-                return lengthUnitsArray[row]
-                
+                return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
             }
             
             return massUnitsArray[row]
@@ -189,8 +165,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
         if Attributes.instance.LENGTH_COVERT_IS_ON {
-            inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
-            outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
+            inputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[inputPickerIndex]
+            outputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[outputPickerIndex]
         }else if Attributes.instance.MASS_CONVERT_IS_ON {
             inputUnitLabel.text = massUnitsShortArray[inputPickerIndex]
             outputUnitLabel.text = massUnitsShortArray[outputPickerIndex]
@@ -262,37 +238,37 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         switch inputPickerIndex {
             
         case 0:
-            convertResult = Double(userInput.text!)! * nanometerToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.NANO_METER_RATIO[outputPickerIndex]
             
         case 1:
-            convertResult = Double(userInput.text!)! * microMeterToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MICRO_METER_RATIO[outputPickerIndex]
             
         case 2:
-            convertResult = Double(userInput.text!)! * milimeterToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILLI_METER_RATIO[outputPickerIndex]
             
         case 3:
-            convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.CENTI_METER_RATIO[outputPickerIndex]
             
         case 4:
-            convertResult = Double(userInput.text!)! * decimeterToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.DECI_METER_RATIO[outputPickerIndex]
             
         case 5:
-            convertResult = Double(userInput.text!)! * meterToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.METER_RATIO[outputPickerIndex]
             
         case 6:
-            convertResult = Double(userInput.text!)! * kilometerToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.KILO_METER_RATIO[outputPickerIndex]
             
         case 7:
-            convertResult = Double(userInput.text!)! * inchToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.INCH_RATIO[outputPickerIndex]
             
         case 8:
-            convertResult = Double(userInput.text!)! * footToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.FOOT_RATIO[outputPickerIndex]
             
         case 9:
-            convertResult = Double(userInput.text!)! * yardToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.YARD_RATIO[outputPickerIndex]
             
         case 10:
-            convertResult = Double(userInput.text!)! * mileToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILE_RATIO[outputPickerIndex]
             
         default:
             print("Not able to catch user selection")
@@ -330,8 +306,6 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         
     }
-    
-    
     
     func scientificToDecimal() -> String{
         
