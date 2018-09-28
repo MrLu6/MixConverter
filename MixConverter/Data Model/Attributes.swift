@@ -10,18 +10,17 @@ import UIKit
 
 class Attributes {
     
+    let EXPONENTSYMBOL = "e"
+    
+    let DECIMAL_POINT = "."
+    
+    let DECIMAL_PLACE_ARRAY = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
   
-//    var decimalPlaceIndex = 2
-//    var scientificPlaceIndex = 2
-//    var isScientific = false
-//    
-     let decimalPlaceFormatArray = ["%.0f", "%.1f", "%.2f", "%.3f", "%.4f", "%.5f", "%.6f", "%.7f", "%.8f", "%.9f"]
-//    let scientificNotationFormatArray = ["0.###E+0", "0.0###E+0", "0.00###E+0", "0.000###E+0","0.0000###E+0","0.00000###E+0","0.000000###E+0","0.0000000###E+0","0.00000000###E+0","0.000000000###E+0"]
+    let DECIMAL_PLACE_FORMAT_ARRAY = ["%.0f", "%.1f", "%.2f", "%.3f", "%.4f", "%.5f", "%.6f", "%.7f", "%.8f", "%.9f"]
+    
+    let USER_INPUT_WARNING = "Your Input Is Not A Number"
 
-    
     static let instance = Attributes()
-    
-    
     
 }
 

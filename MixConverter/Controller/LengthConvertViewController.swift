@@ -14,8 +14,6 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let lengthUnitsShortArray = ["nm", "μm", "mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
     
-    let decimalPlaceArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    
     let nanometerToAllArray = [1, 0.001, 0.000001, 0.0000001, 0.00000001 ,0.000000001, 0.000000000001, 1/25400000, 1/25400000/12, 1/25400000/12/3, 1/25400000/12/3/1760] as [Double]
     
     let microMeterToAllArray = [1000, 1, 0.001, 0.0001, 0.00001,0.000001, 0.000000001, 1/25400, 1/25400/12, 1/25400/12/3, 1/25400/12/3/1760] as [Double]
@@ -111,7 +109,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         if pickerView.tag == 3 {
             
-            return decimalPlaceArray.count
+            return Attributes.instance.DECIMAL_PLACE_ARRAY.count
             
         }else {
             
@@ -125,7 +123,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         if pickerView.tag == 3 {
             
-            return decimalPlaceArray[row]
+            return Attributes.instance.DECIMAL_PLACE_ARRAY[row]
             
         }
         else {
@@ -162,7 +160,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         if (!userInput.text!.isDouble() && !userInput.text!.isEmpty ){
             
-            displayResult.text = String("Wrong input")
+            displayResult.text = Attributes.instance.USER_INPUT_WARNING
             
         }
         else if userInput.text!.isEmpty{
@@ -172,7 +170,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 
             }else{
                 
-                displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
+                displayResult.text = String(format:Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex],0)
                 
             }
             
@@ -190,7 +188,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
 
             }else{
                 
-                displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],convertResult)
+                displayResult.text = String(format:Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex],convertResult)
                 
                 convertResult = Double(displayResult.text!)!
             }
@@ -248,15 +246,15 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     func scientificToDecimal() -> String{
         
-        if let eIndex = convertResultString.range(of: "e")?.lowerBound {
+        if let eIndex = convertResultString.range(of: Attributes.instance.EXPONENTSYMBOL)?.lowerBound {
             
             let powerStartIndex = convertResultString.index(eIndex, offsetBy: 1)
             let power = convertResultString[powerStartIndex..<convertResultString.endIndex]
             
             var convertResultUpToE = String(convertResultString[..<eIndex])
             
-            if !convertResultUpToE.contains("."){
-                convertResultUpToE.append(".")
+            if !convertResultUpToE.contains(Attributes.instance.DECIMAL_POINT){
+                convertResultUpToE.append(Attributes.instance.DECIMAL_POINT)
             }
             
             while convertResultUpToE.count < decimalPlaceIndex + 2 {
@@ -268,7 +266,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             
             let roundDecimal = convertResultUpToE[convertResultString.startIndex..<converResultStringEndIndex]
             
-            return String(roundDecimal+"e"+power)
+            return String(roundDecimal + Attributes.instance.EXPONENTSYMBOL + power)
             
         }
         
@@ -299,7 +297,7 @@ extension Double {
     
     var scientificStyle: String {
         Number.formatter.numberStyle = .scientific
-        Number.formatter.exponentSymbol = "e"
+        Number.formatter.exponentSymbol = Attributes.instance.EXPONENTSYMBOL
         let number = NSNumber(value: self)
         return Number.formatter.string(from :number) ?? description
     }
