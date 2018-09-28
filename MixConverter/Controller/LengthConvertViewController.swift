@@ -10,7 +10,7 @@ import UIKit
 
 class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
 
-    let lengthUnitsArray = ["Nanometer", "MicroMeter", "Millimeter", "Centimeter", "Decimter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
+    let lengthUnitsArray = ["Nanometer", "MicroMeter", "Millimeter", "Centimeter", "Decimeter", "Meter", "Kilometer", "Inch", "Foot", "Yard","Mile"]
     
     let lengthUnitsShortArray = ["nm", "μm", "mm", "cm", "dm", "m", "km", "inch", "ft", "yard","mile"]
     
@@ -23,6 +23,20 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     let milimeterToAllArray = [1000000, 1000,1, 0.1, 0.01, 0.001,0.000001, 1/25.4, 1/25.4/12, 1/25.4/12/3, 1/25.4/12/3/1760]
     
     let centimeterToAllArray = [10000000, 10000,10, 1, 0.1, 0.01, 0.00001, 1/2.54, 1/2.54/12, 1/2.54/12/3, 1/2.54/12/3/1760]
+    
+    let decimeterToAllArray = [100000000, 100000,100, 10, 1, 0.1, 0.0001, 1/0.254, 1/0.254/12, 1/0.254/12/3, 1/0.254/12/3/1760]
+    
+    let meterToAllArray = [1000000000, 1000000,1000, 100, 10, 1, 0.001, 1/0.0254, 1/0.0254/12, 1/0.0254/12/3, 1/0.0254/12/3/1760]
+    
+    let kilometerToAllArray = [1000000000000, 1000000000,1000000, 100000, 10000, 1000, 1, 1/0.0000254, 1/0.0000254/12, 1/0.0000254/12/3, 1/0.0000254/12/3/1760]
+    
+    let inchToAllArray = [25400000, 25400, 25.4, 2.54, 0.254, 0.0254, 0.0000254, 1, 1/12, 1/12 * (1/3), 1/12*(1/3)*(1/1760) ] as [Double]
+    
+    let footToAllArray = [25400000 * 12, 25400 * 12, 25.4 * 12, 2.54 * 12, 0.254 * 12, 0.0254 * 12, 0.0000254 * 12, 12, 1, 1/3, (1/3)*(1/1760) ] as [Double]
+    
+    let yardToAllArray = [25400000 * 12 * 3, 25400 * 12 * 3, 25.4 * 12 * 3, 2.54 * 12 * 3, 0.254 * 12 * 3, 0.0254 * 12 * 3, 0.0000254 * 12 * 3, 36, 3, 1, 1/1760 ] as [Double]
+    
+    let mileToAllArray = [25400000 * 12 * 3 * 1760, 25400 * 12 * 3 * 1760, 25.4 * 12 * 3 * 1760, 2.54 * 12 * 3 * 1760, 0.254 * 12 * 3 * 1760, 0.0254 * 12 * 3 * 1760, 0.0000254 * 12 * 3 * 1760, 63360, 5280, 1760, 1 ] as [Double]
     
     var convertResult = 0.00
     var convertResultString = String(0.00)
@@ -148,13 +162,13 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 displayResult.text = String(format:Attributes.instance.decimalPlaceFormatArray[decimalPlaceIndex],0)
             }
             
-        }else if inputPickerIndex >= 0 && inputPickerIndex <= 3 && (userInput.text?.isDouble())!{
+        }else if inputPickerIndex >= 0 && inputPickerIndex <= 10 && (userInput.text?.isDouble())!{
             
             switch inputPickerIndex {
             
             case 0:
                 convertResult = Double(userInput.text!)! * nanometerToAllArray[outputPickerIndex]
-                print("nanoResult\(convertResult)")
+              
                 
             case 1:
                 convertResult = Double(userInput.text!)! * microMeterToAllArray[outputPickerIndex]
@@ -164,6 +178,26 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 
             case 3:
                 convertResult = Double(userInput.text!)! * centimeterToAllArray[outputPickerIndex]
+            case 4:
+                convertResult = Double(userInput.text!)! * decimeterToAllArray[outputPickerIndex]
+                
+            case 5:
+                convertResult = Double(userInput.text!)! * meterToAllArray[outputPickerIndex]
+                
+            case 6:
+                convertResult = Double(userInput.text!)! * kilometerToAllArray[outputPickerIndex]
+                
+            case 7:
+                convertResult = Double(userInput.text!)! * inchToAllArray[outputPickerIndex]
+                
+            case 8:
+                convertResult = Double(userInput.text!)! * footToAllArray[outputPickerIndex]
+                
+            case 9:
+                convertResult = Double(userInput.text!)! * yardToAllArray[outputPickerIndex]
+                
+            case 10:
+                convertResult = Double(userInput.text!)! * mileToAllArray[outputPickerIndex]
                 
             default:
                 print("Not able to catch user selection")
