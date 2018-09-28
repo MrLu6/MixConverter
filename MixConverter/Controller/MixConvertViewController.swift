@@ -8,26 +8,8 @@
 
 import UIKit
 
-class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
-
-    
-    let massUnitsArray = ["Nanogram","Microgram", "Milligram", "Gram", "Kilogram", "Metric Ton", "Ounce", "Pound", "Stone", "US ton", "Imperial ton"]
-    
-    let massUnitsShortArray = ["ng", "μg", "mg", "g", "kg", "Metric Ton", "oz", "lb", "Stone", "US ton", "Imperial ton"]
-    
-    let nanogramToAllArray = [1, 0.001, 0.000001, 0.000000001, 0.000000000001, 0.000000000000001,  1/28349500000, 1/28349500000/16, 1/28349500000/16/14, 1/28349500000/16/14/(2000/14), 1/28349500000/16/14/160 ] as [Double]
-    
-    let microgramToAllArray = [1000, 1, 0.001, 0.000001, 0.000000001, 0.000000000001, 1/28349500, 1/28349500/16, 1/28349500/16/14, 1/28349500/16/14/(2000/14), 1/28349500/16/14/160] as [Double]
-    
-    let milligramToAllArray = [1000000, 1000, 1, 0.001, 0.000001, 0.000000001,  1/28349.5, 1/28349.5/16, 1/28349.5/16/14, 1/28349.5/16/14/(2000/14), 1/28349.5/16/14/160] as [Double]
-    
-    let gramToAllArray = [1000000000, 1000000, 1000, 1, 0.001, 0.000001, 1/28.3495, 1/28.3495/16, 1/28.3495/16/14, 1/28.3495/16/14/(2000/14), 1/28.3495/16/14/160] as [Double]
-    
-    let kilogramToAllArray = [1000000000000, 1000000000, 1000000, 1000, 1, 0.001, 1/0.0283495, 1/0.0283495/16, 1/0.0283495/16/14, 1/0.0283495/16/14/(2000/14), 1/0.0283495/16/14/160]
-    
-    let metricTonToAllArray = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000, 1, 1/0.0000283495, 1/0.0000283495/16, 1/0.0000283495/16/14,  1/0.0000283495/16/14/(2000/14),  1/0.0000283495/16/14/160]
-    
-    
+class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
+        
     var convertResult = 0.00
     
     var convertResultString = String(0.00)
@@ -135,7 +117,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 
             }
             
-            return massUnitsArray.count
+            return MassAttributes.instance.MASS_UNITS_ARRAY.count
             
         }
         
@@ -153,7 +135,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
                 return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
             }
             
-            return massUnitsArray[row]
+            return MassAttributes.instance.MASS_UNITS_ARRAY[row]
             
         }
     }
@@ -168,8 +150,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             inputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[outputPickerIndex]
         }else if Attributes.instance.MASS_CONVERT_IS_ON {
-            inputUnitLabel.text = massUnitsShortArray[inputPickerIndex]
-            outputUnitLabel.text = massUnitsShortArray[outputPickerIndex]
+            inputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[inputPickerIndex]
+            outputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[outputPickerIndex]
         }
      
         displayConversionResult()
@@ -281,22 +263,22 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         switch inputPickerIndex {
             
         case 0:
-            convertResult = Double(userInput.text!)! * nanogramToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.NANO_GRAM_RATIO[outputPickerIndex]
         
         case 1:
-            convertResult = Double(userInput.text!)! * microgramToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.MICRO_GRAM_RATIO[outputPickerIndex]
             
         case 2:
-            convertResult = Double(userInput.text!)! * milligramToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.MILLI_GRAM_RATIO[outputPickerIndex]
             
         case 3:
-            convertResult = Double(userInput.text!)! * gramToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.GRAM_RATIO[outputPickerIndex]
             
         case 4:
-            convertResult = Double(userInput.text!)! * kilogramToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.KILO_GRAM_RATIO[outputPickerIndex]
             
         case 5:
-            convertResult = Double(userInput.text!)! * metricTonToAllArray[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.METRIC_TON_RATIO[outputPickerIndex]
         
         default:
             print("Not able to catch user selection")

@@ -178,10 +178,10 @@
             </objects>
             <point key="canvasLocation" x="125.59999999999999" y="681.40929535232385"/>
         </scene>
-        <!--Length Convert View Controller-->
+        <!--Mix Convert View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LengthConvertViewController" customModule="MixConverter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Mix Convert View Controller" customClass="MixConvertViewController" customModule="MixConverter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
