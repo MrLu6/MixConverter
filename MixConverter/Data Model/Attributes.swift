@@ -10,6 +10,12 @@ import UIKit
 
 class Attributes {
     
+//    let DEFAULT_INPUT = "0"
+//
+//    let DEFAULT_DECIMAL_PLACE = 2
+//
+//    let DEFAULT_SCIENTIFIC_NOTATION_IS_ON = false
+    
     let EXPONENTSYMBOL = "e"
     
     let DECIMAL_POINT = "."

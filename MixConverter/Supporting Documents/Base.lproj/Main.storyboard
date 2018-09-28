@@ -286,6 +286,7 @@
                         <outlet property="inputUnitLabel" destination="KWJ-X3-9ml" id="uZR-7a-zsd"/>
                         <outlet property="outputPicker" destination="wHl-oT-0jV" id="0GY-Ew-nFb"/>
                         <outlet property="outputUnitLabel" destination="2lk-Hu-5ZQ" id="EXG-cP-eyY"/>
+                        <outlet property="scientificNotationSwitchBtn" destination="dfR-ze-Enr" id="Igv-cW-UwJ"/>
                         <outlet property="userInput" destination="nq8-DA-Qhi" id="SuL-JQ-Ri9"/>
                     </connections>
                 </viewController>

@@ -40,9 +40,9 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let massUnitsShortArray = ["ng", "μg", "mg", "g", "kg", "Metric Ton", "oz", "lb", "Stone", "US ton", "Imperial ton"]
     
-    let nanogramToAllArray = [1, 0.001, 0.0000001, 0.000000001, 0.000000000001, 0.000000000000001, 0.000000000000001, 1/28349500000, 1/28349500000/16, 1/28349500000/16/14, 1/28349500000/16/14/(20000/14), 1/28349500000/16/14/160 ] as [Double]
+    let nanogramToAllArray = [1, 0.001, 0.000001, 0.000000001, 0.000000000001, 0.000000000000001,  1/28349500000, 1/28349500000/16, 1/28349500000/16/14, 1/28349500000/16/14/(2000/14), 1/28349500000/16/14/160 ] as [Double]
     
-    let microgramToAllArray = [1000, 1, 0.001, 0.0000001, 0.0000000001, 0.0000000000001, 1/2834950, 1/2834950/16, 1/2834950/16/14, 1/2834950/16/14/(20000/14), 1/2834950/16/14/160] as [Double]
+    let microgramToAllArray = [1000, 1, 0.001, 0.000001, 0.000000001, 0.000000000001, 1/28349500, 1/28349500/16, 1/28349500/16/14, 1/28349500/16/14/(2000/14), 1/28349500/16/14/160] as [Double]
     
     
     var convertResult = 0.00
@@ -80,6 +80,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     @IBOutlet weak var decimalPlacePicker: UIPickerView!
     
+    @IBOutlet weak var scientificNotationSwitchBtn: UISwitch!
+    
     @IBAction func scientificNotationSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
@@ -94,8 +96,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         displayConversionResult()
         
-        
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -109,7 +111,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         decimalPlacePicker.dataSource = self
         
         displayResult.isEnabled = false
-        decimalPlacePicker.selectRow(2, inComponent: 0, animated: true)
+        decimalPlacePicker.selectRow(decimalPlaceIndex, inComponent: 0, animated: true)
         
         if Attributes.instance.LENGTH_COVERT_IS_ON {
             
@@ -182,7 +184,7 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             inputUnitLabel.text = lengthUnitsShortArray[inputPickerIndex]
             outputUnitLabel.text = lengthUnitsShortArray[outputPickerIndex]
         }else if Attributes.instance.MASS_CONVERT_IS_ON {
-            inputUnitLabel.text = massUnitsArray[inputPickerIndex]
+            inputUnitLabel.text = massUnitsShortArray[inputPickerIndex]
             outputUnitLabel.text = massUnitsShortArray[outputPickerIndex]
         }
      
