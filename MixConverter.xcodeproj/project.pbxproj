@@ -103,11 +103,11 @@
 			children = (
 				E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */,
 				E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */,
+				E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */,
 				E21D8D01215906F80014B506 /* LaunchScreen.storyboard */,
 				E21D8CFF215906F80014B506 /* Assets.xcassets */,
 				E21D8CFC215906F60014B506 /* Main.storyboard */,
 				E21D8CF8215906F60014B506 /* AppDelegate.swift */,
-				E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */,
 			);
 			path = "Supporting Documents";
 			sourceTree = "<group>";
