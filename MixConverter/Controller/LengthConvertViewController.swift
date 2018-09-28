@@ -44,6 +44,14 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
     
     let microgramToAllArray = [1000, 1, 0.001, 0.000001, 0.000000001, 0.000000000001, 1/28349500, 1/28349500/16, 1/28349500/16/14, 1/28349500/16/14/(2000/14), 1/28349500/16/14/160] as [Double]
     
+    let milligramToAllArray = [1000000, 1000, 1, 0.001, 0.000001, 0.000000001,  1/28349.5, 1/28349.5/16, 1/28349.5/16/14, 1/28349.5/16/14/(2000/14), 1/28349.5/16/14/160] as [Double]
+    
+    let gramToAllArray = [1000000000, 1000000, 1000, 1, 0.001, 0.000001, 1/28.3495, 1/28.3495/16, 1/28.3495/16/14, 1/28.3495/16/14/(2000/14), 1/28.3495/16/14/160] as [Double]
+    
+    let kilogramToAllArray = [1000000000000, 1000000000, 1000000, 1000, 1, 0.001, 1/0.0283495, 1/0.0283495/16, 1/0.0283495/16/14, 1/0.0283495/16/14/(2000/14), 1/0.0283495/16/14/160]
+    
+    let metricTonToAllArray = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000, 1, 1/0.0000283495, 1/0.0000283495/16, 1/0.0000283495/16/14,  1/0.0000283495/16/14/(2000/14),  1/0.0000283495/16/14/160]
+    
     
     var convertResult = 0.00
     
@@ -301,6 +309,18 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
         
         case 1:
             convertResult = Double(userInput.text!)! * microgramToAllArray[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * milligramToAllArray[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * gramToAllArray[outputPickerIndex]
+            
+        case 4:
+            convertResult = Double(userInput.text!)! * kilogramToAllArray[outputPickerIndex]
+            
+        case 5:
+            convertResult = Double(userInput.text!)! * metricTonToAllArray[outputPickerIndex]
         
         default:
             print("Not able to catch user selection")
@@ -329,6 +349,8 @@ class LengthConvertViewController: UIViewController,UIPickerViewDelegate,UIPicke
             while convertResultUpToE.count < decimalPlaceIndex + 2 {
                 convertResultUpToE.append("0")
             }
+            
+            convertResultUpToE = String(format: Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex], Double (convertResultUpToE)!)
             
            
             let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + 2)
