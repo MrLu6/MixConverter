@@ -303,241 +303,6 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     
-    func calLength() {
-        
-        switch inputPickerIndex {
-            
-        case 0:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.NANO_METER_RATIO[outputPickerIndex]
-            
-        case 1:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MICRO_METER_RATIO[outputPickerIndex]
-            
-        case 2:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILLI_METER_RATIO[outputPickerIndex]
-            
-        case 3:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.CENTI_METER_RATIO[outputPickerIndex]
-            
-        case 4:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.DECI_METER_RATIO[outputPickerIndex]
-            
-        case 5:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.METER_RATIO[outputPickerIndex]
-            
-        case 6:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.KILO_METER_RATIO[outputPickerIndex]
-            
-        case 7:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.INCH_RATIO[outputPickerIndex]
-            
-        case 8:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.FOOT_RATIO[outputPickerIndex]
-            
-        case 9:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.YARD_RATIO[outputPickerIndex]
-            
-        case 10:
-            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILE_RATIO[outputPickerIndex]
-            
-        default:
-            print("Not able to catch user selection for Length Convert")
-        }
-        
-    }
-    
-    func calMass() {
-        
-        switch inputPickerIndex {
-            
-        case 0:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.NANO_GRAM_RATIO[outputPickerIndex]
-        
-        case 1:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.MICRO_GRAM_RATIO[outputPickerIndex]
-            
-        case 2:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.MILLI_GRAM_RATIO[outputPickerIndex]
-            
-        case 3:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.GRAM_RATIO[outputPickerIndex]
-            
-        case 4:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.KILO_GRAM_RATIO[outputPickerIndex]
-            
-        case 5:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.METRIC_TON_RATIO[outputPickerIndex]
-        
-        case 6:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.OUNCE_RATIO[outputPickerIndex]
-            
-        case 7:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.POUND_RATIO[outputPickerIndex]
-            
-        case 8:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.STONE_RATIO[outputPickerIndex]
-            
-        case 9:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.US_TON_RATIO[outputPickerIndex]
-        
-        case 10:
-            convertResult = Double(userInput.text!)! * MassAttributes.instance.IMPERIAL_TON_RATIO[outputPickerIndex]
-        
-        default:
-            print("Not able to catch user selection for Mass Convert")
-            
-            
-        }
-        
-        
-    }
-    
-    func calVolume(){
-        
-        switch inputPickerIndex {
-        case 0:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.MILLI_LITER_RATIO[outputPickerIndex]
-        case 1:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.LITER_RATIO[outputPickerIndex]
-        case 2:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_METER_RATIO[outputPickerIndex]
-        case 3:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_INCH_RATIO[outputPickerIndex]
-        case 4:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_FOOT_RATIO[outputPickerIndex]
-        case 5:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_FLUID_OUNCE_RATIO[outputPickerIndex]
-        case 6:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_CUP_RATIO[outputPickerIndex]
-        case 7:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_PINT[outputPickerIndex]
-        case 8:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_QUART[outputPickerIndex]
-        case 9:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_GALLON[outputPickerIndex]
-       
-
-        default:
-            print("Not able to catch user selection for Volume Convert")
-        }
-        
-    }
-    
-    func calTemperatrue(){
-        
-        switch inputPickerIndex {
-            
-        case 0:
-            
-            switch outputPickerIndex {
-                
-            case 0:
-                convertResult = Double(userInput.text!)!
-            case 1:
-                convertResult = Double(userInput.text!)! * 1.8 + 32
-            case 2:
-                convertResult = Double(userInput.text!)! + 273.15
-            default:
-                 print("Not able to catch user selection")
-                
-            }
-            
-        case 1:
-            
-            switch outputPickerIndex {
-                
-            case 0:
-                convertResult = (Double(userInput.text!)! - 32) / 1.8
-            case 1:
-                convertResult = Double(userInput.text!)!
-            case 2:
-                convertResult = (Double(userInput.text!)! + 459.67) * 5.0 / 9
-                
-            default:
-                print("Not able to catch user selection")
-            }
-            
-        case 2:
-            
-            switch outputPickerIndex {
-            
-            case 0:
-                convertResult = Double(userInput.text!)! - 273.15
-            case 1:
-                convertResult = 1.8 * (Double(userInput.text!)! - 273.15) + 32
-            case 2:
-                convertResult = Double(userInput.text!)!
-            default:
-                print("Not able to catch user selection")
-                
-            }
-            
-        default:
-             print("Not able to catch user selection for Temperature Convert")
-        }
-        
-    }
-    
-    func calTime(){
-        
-        switch inputPickerIndex {
-        case 0:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.NANO_SECOND_RATIO[outputPickerIndex]
-        case 1:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MICRO_SECOND_RATIO[outputPickerIndex]
-        case 2:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MILLI_SECOND_RATIO[outputPickerIndex]
-        case 3:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.SECOND_RATIO[outputPickerIndex]
-        case 4:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MINUTE_RATIO[outputPickerIndex]
-        case 5:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.HOUR_RATIO[outputPickerIndex]
-        case 6:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DAY_RATIO[outputPickerIndex]
-        case 7:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.WEEK_RATIO[outputPickerIndex]
-        case 8:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MONTH_RATIO[outputPickerIndex]
-        case 9:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.YEAR_RATIO[outputPickerIndex]
-        case 10:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DECADE_RATIO[outputPickerIndex]
-        case 11:
-            convertResult = Double(userInput.text!)! * TimeAttributes.instance.CENTURY_RATIO[outputPickerIndex]
-
-        default:
-            print("Not able to catch user selection for Time Convert")
-        }
-        
-    }
-    
-    func calSpeed(){
-        
-        switch inputPickerIndex {
-            
-        case 0:
-             convertResult = Double(userInput.text!)! * SpeedAttributes.instance.METER_PER_SECOND[outputPickerIndex]
-            
-        case 1:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KILO_METER_PER_HOUR[outputPickerIndex]
-            
-        case 2:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.FOOT_PER_SECOND[outputPickerIndex]
-            
-        case 3:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.MILE_PER_HOUR[outputPickerIndex]
-        
-        case 4:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KNOT[outputPickerIndex]
-        
-            
-        default:
-            print("Not able to catch user selection for Speed Convert")
-        }
-        
-    }
-    
     func scientificToDecimal() -> String{
         
         if let eIndex = convertResultString.range(of: Attributes.instance.EXPONENTSYMBOL)?.lowerBound {
@@ -583,7 +348,249 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
 }
 
-extension String{
+//calculate unsimply unit conversion for all types
+extension MixConvertViewController {
+    
+    func calLength() {
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.NANO_METER_RATIO[outputPickerIndex]
+            
+        case 1:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MICRO_METER_RATIO[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILLI_METER_RATIO[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.CENTI_METER_RATIO[outputPickerIndex]
+            
+        case 4:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.DECI_METER_RATIO[outputPickerIndex]
+            
+        case 5:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.METER_RATIO[outputPickerIndex]
+            
+        case 6:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.KILO_METER_RATIO[outputPickerIndex]
+            
+        case 7:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.INCH_RATIO[outputPickerIndex]
+            
+        case 8:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.FOOT_RATIO[outputPickerIndex]
+            
+        case 9:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.YARD_RATIO[outputPickerIndex]
+            
+        case 10:
+            convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILE_RATIO[outputPickerIndex]
+            
+        default:
+            print("Not able to catch user selection for Length Convert")
+        }
+        
+    }
+    
+    
+    func calMass() {
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.NANO_GRAM_RATIO[outputPickerIndex]
+            
+        case 1:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.MICRO_GRAM_RATIO[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.MILLI_GRAM_RATIO[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.GRAM_RATIO[outputPickerIndex]
+            
+        case 4:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.KILO_GRAM_RATIO[outputPickerIndex]
+            
+        case 5:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.METRIC_TON_RATIO[outputPickerIndex]
+            
+        case 6:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.OUNCE_RATIO[outputPickerIndex]
+            
+        case 7:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.POUND_RATIO[outputPickerIndex]
+            
+        case 8:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.STONE_RATIO[outputPickerIndex]
+            
+        case 9:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.US_TON_RATIO[outputPickerIndex]
+            
+        case 10:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.IMPERIAL_TON_RATIO[outputPickerIndex]
+            
+        default:
+            print("Not able to catch user selection for Mass Convert")
+            
+            
+        }
+        
+        
+    }
+    
+    func calVolume(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.MILLI_LITER_RATIO[outputPickerIndex]
+        case 1:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.LITER_RATIO[outputPickerIndex]
+        case 2:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_METER_RATIO[outputPickerIndex]
+        case 3:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_INCH_RATIO[outputPickerIndex]
+        case 4:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_FOOT_RATIO[outputPickerIndex]
+        case 5:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_FLUID_OUNCE_RATIO[outputPickerIndex]
+        case 6:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_CUP_RATIO[outputPickerIndex]
+        case 7:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_PINT[outputPickerIndex]
+        case 8:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_QUART[outputPickerIndex]
+        case 9:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_GALLON[outputPickerIndex]
+            
+            
+        default:
+            print("Not able to catch user selection for Volume Convert")
+        }
+        
+    }
+    
+    func calTemperatrue(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            
+            switch outputPickerIndex {
+                
+            case 0:
+                convertResult = Double(userInput.text!)!
+            case 1:
+                convertResult = Double(userInput.text!)! * 1.8 + 32
+            case 2:
+                convertResult = Double(userInput.text!)! + 273.15
+            default:
+                print("Not able to catch user selection")
+                
+            }
+            
+        case 1:
+            
+            switch outputPickerIndex {
+                
+            case 0:
+                convertResult = (Double(userInput.text!)! - 32) / 1.8
+            case 1:
+                convertResult = Double(userInput.text!)!
+            case 2:
+                convertResult = (Double(userInput.text!)! + 459.67) * 5.0 / 9
+                
+            default:
+                print("Not able to catch user selection")
+            }
+            
+        case 2:
+            
+            switch outputPickerIndex {
+                
+            case 0:
+                convertResult = Double(userInput.text!)! - 273.15
+            case 1:
+                convertResult = 1.8 * (Double(userInput.text!)! - 273.15) + 32
+            case 2:
+                convertResult = Double(userInput.text!)!
+            default:
+                print("Not able to catch user selection")
+                
+            }
+            
+        default:
+            print("Not able to catch user selection for Temperature Convert")
+        }
+        
+    }
+    
+    func calTime(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.NANO_SECOND_RATIO[outputPickerIndex]
+        case 1:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MICRO_SECOND_RATIO[outputPickerIndex]
+        case 2:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MILLI_SECOND_RATIO[outputPickerIndex]
+        case 3:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.SECOND_RATIO[outputPickerIndex]
+        case 4:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MINUTE_RATIO[outputPickerIndex]
+        case 5:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.HOUR_RATIO[outputPickerIndex]
+        case 6:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DAY_RATIO[outputPickerIndex]
+        case 7:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.WEEK_RATIO[outputPickerIndex]
+        case 8:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MONTH_RATIO[outputPickerIndex]
+        case 9:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.YEAR_RATIO[outputPickerIndex]
+        case 10:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DECADE_RATIO[outputPickerIndex]
+        case 11:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.CENTURY_RATIO[outputPickerIndex]
+            
+        default:
+            print("Not able to catch user selection for Time Convert")
+        }
+        
+    }
+    
+    func calSpeed(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.METER_PER_SECOND[outputPickerIndex]
+            
+        case 1:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KILO_METER_PER_HOUR[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.FOOT_PER_SECOND[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.MILE_PER_HOUR[outputPickerIndex]
+            
+        case 4:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KNOT[outputPickerIndex]
+            
+        default:
+            print("Not able to catch user selection for Speed Convert")
+        }
+        
+    }
+    
+}
+
+extension String {
     
     func isDouble() -> Bool {
         if Double(self) == nil && !self.isEmpty{
