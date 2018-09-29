@@ -101,6 +101,17 @@
                                     <segue destination="OzW-jr-vL9" kind="custom" identifier="Time" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="utn-le-82g"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Speed" id="c0T-UI-utu">
+                                <rect key="frame" x="0.0" y="292" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="c0T-UI-utu" id="2ee-eU-BFt">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OzW-jr-vL9" kind="custom" identifier="Speed" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="g4s-Mh-UuZ"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="C0y-PE-Z4f" id="KgO-w0-ryG"/>
@@ -148,7 +159,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKV-VX-SeE">
-                                <rect key="frame" x="112" y="314" width="72" height="72"/>
+                                <rect key="frame" x="58" y="308" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Temperature"/>
                                 <connections>
@@ -156,11 +167,19 @@
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg6-he-Gx9">
-                                <rect key="frame" x="217" y="314" width="72" height="72"/>
+                                <rect key="frame" x="165" y="308" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Time"/>
                                 <connections>
                                     <action selector="OpenConvertScreen:" destination="cpG-JK-Dvq" eventType="touchUpInside" id="50c-1U-7yd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tu8-Dl-DN9">
+                                <rect key="frame" x="261" y="314" width="72" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Speed"/>
+                                <connections>
+                                    <action selector="OpenConvertScreen:" destination="cpG-JK-Dvq" eventType="touchUpInside" id="mBy-C9-408"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -332,7 +351,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vsK-0D-0AT"/>
+        <segue reference="g4s-Mh-UuZ"/>
         <segue reference="xul-Ce-6li"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,6 +17,8 @@
 		E28B9E5B215EC6D4006A1C7D /* MassAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */; };
 		E28B9E5D215F0E52006A1C7D /* VolumeAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */; };
 		E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */; };
+		E28B9E61215F4ADB006A1C7D /* TimeAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E60215F4ADB006A1C7D /* TimeAttributes.swift */; };
+		E28B9E63215F5BA0006A1C7D /* SpeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E62215F5BA0006A1C7D /* SpeedAttributes.swift */; };
 		E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */; };
 		E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */; };
 		E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */; };
@@ -35,6 +37,8 @@
 		E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassAttributes.swift; sourceTree = "<group>"; };
 		E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeAttributes.swift; sourceTree = "<group>"; };
 		E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAttributes.swift; sourceTree = "<group>"; };
+		E28B9E60215F4ADB006A1C7D /* TimeAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAttributes.swift; sourceTree = "<group>"; };
+		E28B9E62215F5BA0006A1C7D /* SpeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedAttributes.swift; sourceTree = "<group>"; };
 		E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixConverter-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */,
 				E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */,
 				E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */,
+				E28B9E60215F4ADB006A1C7D /* TimeAttributes.swift */,
+				E28B9E62215F5BA0006A1C7D /* SpeedAttributes.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -204,6 +210,8 @@
 				E21D8D112159114D0014B506 /* Attributes.swift in Sources */,
 				E21D8CF9215906F60014B506 /* AppDelegate.swift in Sources */,
 				E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */,
+				E28B9E63215F5BA0006A1C7D /* SpeedAttributes.swift in Sources */,
+				E28B9E61215F4ADB006A1C7D /* TimeAttributes.swift in Sources */,
 				E28B9E5D215F0E52006A1C7D /* VolumeAttributes.swift in Sources */,
 				E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */,
 			);

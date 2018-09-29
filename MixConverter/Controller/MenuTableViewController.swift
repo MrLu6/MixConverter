@@ -10,7 +10,7 @@ import Foundation
 
 class MenuTableViewController: UITableViewController {
     
-    var menuOption = ["Home","Length", "Mass", "Volume", "Temperature", "Time"]
+    var menuOption = ["Home","Length", "Mass", "Volume", "Temperature", "Time", "Speed"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOption.count
@@ -26,20 +26,28 @@ class MenuTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 1 {
+            
             Attributes.instance.LENGTH_COVERT_IS_ON = true
             Attributes.instance.MASS_CONVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+            
         }else if indexPath.row == 2 {
             
             Attributes.instance.MASS_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
-
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+            
         }else if indexPath.row == 3 {
             
             Attributes.instance.VOLUME_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
             
         }else if indexPath.row == 4 {
             
@@ -47,6 +55,25 @@ class MenuTableViewController: UITableViewController {
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.MASS_CONVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+            
+        } else if indexPath.row == 5 {
+            
+            Attributes.instance.TIME_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+            
+            
+        }else if indexPath.row == 6 {
+            
+            Attributes.instance.SPEED_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
             
         }
         

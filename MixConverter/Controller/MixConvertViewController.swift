@@ -93,10 +93,19 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             inputUnitLabel.text = "ml"
             outputUnitLabel.text = "ml"
             
-        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON{
+        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
             
             inputUnitLabel.text = "°C"
             outputUnitLabel.text = "°C"
+            
+        }else if Attributes.instance.TIME_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = "ns"
+            outputUnitLabel.text = "ns"
+            
+        }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+            
+            
             
         }
         
@@ -133,9 +142,17 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
                 return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
             
+            } else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+                
+                return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
+                
+            } else if Attributes.instance.TIME_CONVERT_IS_ON {
+                
+                return TimeAttributes.instance.TIME_UNITS_ARRAY.count
+                
             }
             
-            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
+            return TimeAttributes.instance.TIME_UNITS_ARRAY.count
             
         }
         
@@ -162,9 +179,18 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
                 return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
                 
+            }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+                
+                 return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
+                
+            }
+            else if Attributes.instance.TIME_CONVERT_IS_ON {
+                
+                return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
+                
             }
             
-            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
+            return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
             
         }
     }
@@ -232,13 +258,17 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }else {
             
             if Attributes.instance.LENGTH_COVERT_IS_ON {
-                 calLengthConvertResult()
+                calLength()
             }else if Attributes.instance.MASS_CONVERT_IS_ON {
-                calMassConvertResult()
+                calMass()
             }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
-                calVolumeConvertResult()
+                calVolume()
             }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
-                calTemperatrueResult()
+                calTemperatrue()
+            }else if Attributes.instance.TIME_CONVERT_IS_ON {
+                calTime()
+            }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+                calSpeed()
             }
            
         
@@ -262,7 +292,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     
-    func calLengthConvertResult() {
+    func calLength() {
         
         switch inputPickerIndex {
             
@@ -305,7 +335,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
-    func calMassConvertResult() {
+    func calMass() {
         
         switch inputPickerIndex {
             
@@ -351,7 +381,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
-    func calVolumeConvertResult(){
+    func calVolume(){
         
         switch inputPickerIndex {
         case 0:
@@ -382,7 +412,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
-    func calTemperatrueResult(){
+    func calTemperatrue(){
         
         switch inputPickerIndex {
             
@@ -439,6 +469,44 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    func calTime(){
+        
+        switch inputPickerIndex {
+        case 0:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.NANO_SECOND_RATIO[outputPickerIndex]
+        case 1:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MICRO_SECOND_RATIO[outputPickerIndex]
+        case 2:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MILLI_SECOND_RATIO[outputPickerIndex]
+        case 3:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.SECOND_RATIO[outputPickerIndex]
+        case 4:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MINUTE_RATIO[outputPickerIndex]
+        case 5:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.HOUR_RATIO[outputPickerIndex]
+        case 6:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DAY_RATIO[outputPickerIndex]
+        case 7:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.WEEK_RATIO[outputPickerIndex]
+        case 8:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.MONTH_RATIO[outputPickerIndex]
+        case 9:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.YEAR_RATIO[outputPickerIndex]
+        case 10:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.DECADE_RATIO[outputPickerIndex]
+        case 11:
+            convertResult = Double(userInput.text!)! * TimeAttributes.instance.CENTURY_RATIO[outputPickerIndex]
+
+        default:
+            print("Not able to catch user selection")
+        }
+        
+    }
+    
+    func calSpeed(){
+        
+    }
+    
     func scientificToDecimal() -> String{
         
         if let eIndex = convertResultString.range(of: Attributes.instance.EXPONENTSYMBOL)?.lowerBound {
@@ -457,8 +525,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             }
             
             convertResultUpToE = String(format: Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex], Double (convertResultUpToE)!)
-            print("unsimplyReuslt" + convertResultString)
-            print("round answer" + convertResultUpToE)
+            
            
             let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + 2)
             
@@ -475,7 +542,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     func backToMenu(){
         MenuButton.target = self.revealViewController()
         MenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.revealViewController().rearViewRevealWidth = 100
+        self.revealViewController().rearViewRevealWidth = 200
         
     view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }

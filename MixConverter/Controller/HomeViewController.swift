@@ -30,23 +30,59 @@ class HomeViewController: UIViewController {
         let btnTitle = sender.currentTitle!
         self.revealViewController().rearViewController.performSegue(withIdentifier: btnTitle, sender: self.revealViewController().rearViewController)
         if sender.tag == 1 {
+            
             Attributes.instance.LENGTH_COVERT_IS_ON = true
             Attributes.instance.MASS_CONVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+            
         }else if sender.tag == 2{
+            
             Attributes.instance.MASS_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+
         }else if sender.tag == 3{
+            
             Attributes.instance.VOLUME_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+
 
         }else if sender.tag == 4 {
+            
             Attributes.instance.TEMPERATRUE_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.MASS_CONVERT_IS_ON = false
             Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+
+            
+        }else if sender.tag == 5 {
+            
+            Attributes.instance.TIME_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.SPEED_CONVERT_IS_ON = false
+
+            
+            
+        }else if sender.tag == 6 {
+            
+            Attributes.instance.SPEED_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            Attributes.instance.TIME_CONVERT_IS_ON = false
+
+            
         }
     }
     
