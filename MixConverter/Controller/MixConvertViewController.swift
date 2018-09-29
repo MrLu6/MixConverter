@@ -57,7 +57,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             isScientific = false
             
         }
-        
+        userInput.resignFirstResponder()
         displayConversionResult()
         
     }
@@ -237,6 +237,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
         displaySelectTypeShort()
         displayConversionResult()
+        
+        userInput.resignFirstResponder()
 
     }
     
