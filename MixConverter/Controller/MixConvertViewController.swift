@@ -93,6 +93,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             inputUnitLabel.text = "ml"
             outputUnitLabel.text = "ml"
             
+        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON{
+            
+            inputUnitLabel.text = "°C"
+            outputUnitLabel.text = "°C"
+            
         }
         
         backToMenu()
@@ -123,9 +128,14 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             } else if Attributes.instance.MASS_CONVERT_IS_ON {
                
               return MassAttributes.instance.MASS_UNITS_ARRAY.count
+                
+            } else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+                
+                return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
+            
             }
             
-            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
+            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
             
         }
         
@@ -139,13 +149,22 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }
         else {
+            
             if Attributes.instance.LENGTH_COVERT_IS_ON {
+                
                 return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
+                
             }else if Attributes.instance.MASS_CONVERT_IS_ON{
+                
                 return MassAttributes.instance.MASS_UNITS_ARRAY[row]
+                
+            }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+                
+                return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
+                
             }
             
-            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
+            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
             
         }
     }
@@ -170,6 +189,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
             inputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
+        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[inputPickerIndex]
+            outputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[outputPickerIndex]
             
         }
      
@@ -213,6 +237,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 calMassConvertResult()
             }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
                 calVolumeConvertResult()
+            }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+                calTemperatrueResult()
             }
            
         
@@ -352,6 +378,63 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
         default:
             print("Not able to catch user selection")
+        }
+        
+    }
+    
+    func calTemperatrueResult(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+            
+            switch outputPickerIndex {
+                
+            case 0:
+                convertResult = Double(userInput.text!)!
+            case 1:
+                convertResult = Double(userInput.text!)! * 1.8 + 32
+            case 2:
+                convertResult = Double(userInput.text!)! + 273.15
+            default:
+                 print("Not able to catch user selection")
+                
+            }
+            
+        case 1:
+            
+            switch outputPickerIndex {
+                
+            case 0:
+                convertResult = (Double(userInput.text!)! - 32) / 1.8
+            case 1:
+                convertResult = Double(userInput.text!)!
+            case 2:
+                convertResult = (Double(userInput.text!)! + 459.67) * 5.0 / 9
+                
+            default:
+                print("Not able to catch user selection")
+            }
+            
+        case 2:
+            
+            switch outputPickerIndex {
+            
+            case 0:
+                convertResult = Double(userInput.text!)! - 273.15
+            case 1:
+                convertResult = 1.8 * (Double(userInput.text!)! - 273.15) + 32
+            case 2:
+                convertResult = Double(userInput.text!)!
+            default:
+                print("Not able to catch user selection")
+                
+            }
+            
+         
+
+        default:
+             print("Not able to catch user selection")
         }
         
     }

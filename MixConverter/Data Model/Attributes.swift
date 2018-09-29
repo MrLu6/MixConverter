@@ -30,6 +30,8 @@ class Attributes {
     
     var VOLUME_CONVERT_IS_ON = false
     
+    var TEMPERATRUE_CONVERT_IS_ON = false
+    
     let USER_INPUT_WARNING = "Your Input Is Not A Number"
 
     static let instance = Attributes()

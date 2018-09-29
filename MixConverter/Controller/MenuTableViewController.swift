@@ -40,6 +40,14 @@ class MenuTableViewController: UITableViewController {
             Attributes.instance.VOLUME_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
             Attributes.instance.MASS_CONVERT_IS_ON = false
+            
+        }else if indexPath.row == 4 {
+            
+            Attributes.instance.TEMPERATRUE_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
+            
         }
         
         self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)

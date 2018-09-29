@@ -16,6 +16,7 @@
 		E28B9E59215EC21F006A1C7D /* LengthAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */; };
 		E28B9E5B215EC6D4006A1C7D /* MassAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */; };
 		E28B9E5D215F0E52006A1C7D /* VolumeAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */; };
+		E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */; };
 		E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */; };
 		E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */; };
 		E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */; };
@@ -33,6 +34,7 @@
 		E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthAttributes.swift; sourceTree = "<group>"; };
 		E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MassAttributes.swift; sourceTree = "<group>"; };
 		E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeAttributes.swift; sourceTree = "<group>"; };
+		E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAttributes.swift; sourceTree = "<group>"; };
 		E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixConverter-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				E28B9E58215EC21F006A1C7D /* LengthAttributes.swift */,
 				E28B9E5A215EC6D4006A1C7D /* MassAttributes.swift */,
 				E28B9E5C215F0E52006A1C7D /* VolumeAttributes.swift */,
+				E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */,
 			);
 			path = "Data Model";
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				E21D8CF9215906F60014B506 /* AppDelegate.swift in Sources */,
 				E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */,
 				E28B9E5D215F0E52006A1C7D /* VolumeAttributes.swift in Sources */,
+				E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
