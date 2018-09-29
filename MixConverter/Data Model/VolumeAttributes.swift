@@ -12,7 +12,7 @@ class VolumeAttributes {
     
     let VOLUME_UNITS_ARRAY = ["Milliliter", "Liter", "Cubic meter", "Cubic inch", "Cubic foot", "US fluid ounce", "US cup", "US liquid pint", "US liquid quart", "US liquid gallon"]
     
-    let VOLUME_UNITS_SHORT_ARRAY = ["ml", "l", "m^3", "in^3", "ft^3", "oz(US)", "cup(US)", "pint(US)", "quart(US)", "gallon(US)"]
+    let VOLUME_UNITS_SHORT_ARRAY = ["mL", "L", "m^3", "in^3", "ft^3", "oz(US)", "cup(US)", "pint(US)", "quart(US)", "gallon(US)"]
     
     let MILLI_LITER_RATIO = [1, 0.001, 0.000001, pow((1/2.54),3), pow(Double(1/2.54/12),3.0), 0.03381402270184299520, 0.0042267528377303744, 0.002113376418865187328, 0.001056688209432593664, 0.000264172052358148416] as [Double]
     
