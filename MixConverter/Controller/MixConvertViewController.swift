@@ -105,7 +105,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }else if Attributes.instance.SPEED_CONVERT_IS_ON {
             
-            
+            inputUnitLabel.text = "m/s"
+            outputUnitLabel.text = "m/s"
             
         }
         
@@ -152,7 +153,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
             }
             
-            return TimeAttributes.instance.TIME_UNITS_ARRAY.count
+            return SpeedAttributes.instance.SPEED_UNITS_RATIO.count
             
         }
         
@@ -190,7 +191,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
             }
             
-            return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
+            return SpeedAttributes.instance.SPEED_UNITS_RATIO[row]
             
         }
     }
@@ -220,6 +221,16 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
             inputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
+        }else if Attributes.instance.TIME_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY[inputPickerIndex]
+            outputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
+        }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[inputPickerIndex]
+            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[outputPickerIndex]
             
         }
      
@@ -330,7 +341,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             convertResult = Double(userInput.text!)! * LengthAttributes.instance.MILE_RATIO[outputPickerIndex]
             
         default:
-            print("Not able to catch user selection")
+            print("Not able to catch user selection for Length Convert")
         }
         
     }
@@ -373,7 +384,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             convertResult = Double(userInput.text!)! * MassAttributes.instance.IMPERIAL_TON_RATIO[outputPickerIndex]
         
         default:
-            print("Not able to catch user selection")
+            print("Not able to catch user selection for Mass Convert")
             
             
         }
@@ -407,7 +418,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
        
 
         default:
-            print("Not able to catch user selection")
+            print("Not able to catch user selection for Volume Convert")
         }
         
     }
@@ -461,10 +472,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
             }
             
-         
-
         default:
-             print("Not able to catch user selection")
+             print("Not able to catch user selection for Temperature Convert")
         }
         
     }
@@ -498,12 +507,34 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             convertResult = Double(userInput.text!)! * TimeAttributes.instance.CENTURY_RATIO[outputPickerIndex]
 
         default:
-            print("Not able to catch user selection")
+            print("Not able to catch user selection for Time Convert")
         }
         
     }
     
     func calSpeed(){
+        
+        switch inputPickerIndex {
+            
+        case 0:
+             convertResult = Double(userInput.text!)! * SpeedAttributes.instance.METER_PER_SECOND[outputPickerIndex]
+            
+        case 1:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KILO_METER_PER_HOUR[outputPickerIndex]
+            
+        case 2:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.FOOT_PER_SECOND[outputPickerIndex]
+            
+        case 3:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.MILE_PER_HOUR[outputPickerIndex]
+        
+        case 4:
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KNOT[outputPickerIndex]
+        
+            
+        default:
+            print("Not able to catch user selection for Speed Convert")
+        }
         
     }
     
