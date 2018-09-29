@@ -268,21 +268,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }else {
             
-            if Attributes.instance.LENGTH_COVERTER_IS_ON {
-                calLength()
-            }else if Attributes.instance.MASS_CONVERTER_IS_ON {
-                calMass()
-            }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
-                calVolume()
-            }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
-                calTemperatrue()
-            }else if Attributes.instance.TIME_CONVERTER_IS_ON {
-                calTime()
-            }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
-                calSpeed()
-            }
-           
-        
+            calSelectTypeConversion()
+            
             convertResultString = String(convertResult)
       
             if isScientific {
@@ -298,6 +285,24 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 convertResult = Double(displayResult.text!)!
             }
 
+        }
+        
+    }
+    
+    func calSelectTypeConversion() {
+        
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
+            calLength()
+        }else if Attributes.instance.MASS_CONVERTER_IS_ON {
+            calMass()
+        }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
+            calVolume()
+        }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
+            calTemperatrue()
+        }else if Attributes.instance.TIME_CONVERTER_IS_ON {
+            calTime()
+        }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
+            calSpeed()
         }
         
     }
@@ -341,11 +346,9 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         self.revealViewController().rearViewRevealWidth = 200
         
     view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
     }
 
-    
-    
-    
 }
 
 //calculate unsimply unit conversion for all types
@@ -434,7 +437,6 @@ extension MixConvertViewController {
             
         default:
             print("Not able to catch user selection for Mass Convert")
-            
             
         }
         

@@ -26,7 +26,7 @@ class HomeViewController: UIViewController {
         
         menuButton.target = self.revealViewController()
         menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.revealViewController().rearViewRevealWidth = 100
+        self.revealViewController().rearViewRevealWidth = 200
         
         view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
