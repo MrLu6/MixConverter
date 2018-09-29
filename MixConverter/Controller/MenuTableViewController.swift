@@ -10,7 +10,7 @@ import Foundation
 
 class MenuTableViewController: UITableViewController {
     
-    var menuOption = ["Home","Length", "Weight", "Volume", "Temperature", "Time"]
+    var menuOption = ["Home","Length", "Mass", "Volume", "Temperature", "Time"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOption.count

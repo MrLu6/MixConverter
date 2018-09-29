@@ -57,7 +57,7 @@
                                     <segue destination="OzW-jr-vL9" kind="custom" identifier="Length" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="EK2-rF-5ht"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Weight" id="I81-pm-rEY">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Mass" id="I81-pm-rEY">
                                 <rect key="frame" x="0.0" y="116" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I81-pm-rEY" id="lLM-bG-aNG">
@@ -65,7 +65,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="OzW-jr-vL9" kind="custom" identifier="Weight" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="vsK-0D-0AT"/>
+                                    <segue destination="OzW-jr-vL9" kind="custom" identifier="Mass" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="vsK-0D-0AT"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Volume" id="Ijg-px-O64">
@@ -134,7 +134,7 @@
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRM-xf-FOf">
                                 <rect key="frame" x="165" y="234" width="72" height="72"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Weight"/>
+                                <state key="normal" title="Mass"/>
                                 <connections>
                                     <action selector="OpenConvertScreen:" destination="cpG-JK-Dvq" eventType="touchUpInside" id="3se-Pq-xCS"/>
                                 </connections>
@@ -332,7 +332,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="At7-vN-CJ0"/>
+        <segue reference="vsK-0D-0AT"/>
         <segue reference="xul-Ce-6li"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -280,6 +280,21 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         case 5:
             convertResult = Double(userInput.text!)! * MassAttributes.instance.METRIC_TON_RATIO[outputPickerIndex]
         
+        case 6:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.OUNCE_RATIO[outputPickerIndex]
+            
+        case 7:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.POUND_RATIO[outputPickerIndex]
+            
+        case 8:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.STONE_RATIO[outputPickerIndex]
+            
+        case 9:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.US_TON_RATIO[outputPickerIndex]
+        
+        case 10:
+            convertResult = Double(userInput.text!)! * MassAttributes.instance.IMPERIAL_TON_RATIO[outputPickerIndex]
+        
         default:
             print("Not able to catch user selection")
             
@@ -307,7 +322,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             }
             
             convertResultUpToE = String(format: Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex], Double (convertResultUpToE)!)
-            
+            print("unsimplyReuslt" + convertResultString)
+            print("round answer" + convertResultUpToE)
            
             let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + 2)
             
