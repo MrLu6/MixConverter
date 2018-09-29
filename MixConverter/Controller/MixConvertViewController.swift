@@ -22,7 +22,6 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     var isScientific = false
     
-    
     @IBOutlet weak var MenuButton: UIBarButtonItem!
     
     @IBOutlet weak var userInput: UITextField!
@@ -425,7 +424,6 @@ extension MixConvertViewController {
         }
         
     }
-    
     
     func calMass() {
         
