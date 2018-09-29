@@ -28,11 +28,18 @@ class MenuTableViewController: UITableViewController {
         if indexPath.row == 1 {
             Attributes.instance.LENGTH_COVERT_IS_ON = true
             Attributes.instance.MASS_CONVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
         }else if indexPath.row == 2 {
             
             Attributes.instance.MASS_CONVERT_IS_ON = true
             Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.VOLUME_CONVERT_IS_ON = false
 
+        }else if indexPath.row == 3 {
+            
+            Attributes.instance.VOLUME_CONVERT_IS_ON = true
+            Attributes.instance.LENGTH_COVERT_IS_ON = false
+            Attributes.instance.MASS_CONVERT_IS_ON = false
         }
         
         self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)

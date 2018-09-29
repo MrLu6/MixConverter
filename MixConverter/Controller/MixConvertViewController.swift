@@ -88,6 +88,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             inputUnitLabel.text = "ng"
             outputUnitLabel.text = "ng"
             
+        }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = "ml"
+            outputUnitLabel.text = "ml"
+            
         }
         
         backToMenu()
@@ -115,9 +120,12 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 
               return LengthAttributes.instance.LENGTH_UNITS_ARRAY.count
                 
+            } else if Attributes.instance.MASS_CONVERT_IS_ON {
+               
+              return MassAttributes.instance.MASS_UNITS_ARRAY.count
             }
             
-            return MassAttributes.instance.MASS_UNITS_ARRAY.count
+            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
             
         }
         
@@ -133,9 +141,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         else {
             if Attributes.instance.LENGTH_COVERT_IS_ON {
                 return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
+            }else if Attributes.instance.MASS_CONVERT_IS_ON{
+                return MassAttributes.instance.MASS_UNITS_ARRAY[row]
             }
             
-            return MassAttributes.instance.MASS_UNITS_ARRAY[row]
+            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
             
         }
     }
@@ -147,11 +157,20 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
         if Attributes.instance.LENGTH_COVERT_IS_ON {
+            
             inputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
         }else if Attributes.instance.MASS_CONVERT_IS_ON {
+            
             inputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
+        }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+            
+            inputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[inputPickerIndex]
+            outputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[outputPickerIndex]
+            
         }
      
         displayConversionResult()
@@ -192,6 +211,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                  calLengthConvertResult()
             }else if Attributes.instance.MASS_CONVERT_IS_ON {
                 calMassConvertResult()
+            }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+                calVolumeConvertResult()
             }
            
         
@@ -301,6 +322,18 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }
         
+        
+    }
+    
+    func calVolumeConvertResult(){
+        
+        switch inputPickerIndex {
+        case 0:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.MILLII_LITER[outputPickerIndex]
+
+        default:
+            print("Not able to catch user selection")
+        }
         
     }
     
