@@ -78,37 +78,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(decimalPlaceIndex, inComponent: 0, animated: true)
         
-        if Attributes.instance.LENGTH_COVERTER_IS_ON {
-            
-            inputUnitLabel.text = "nm"
-            outputUnitLabel.text = "nm"
-            
-        }else if Attributes.instance.MASS_CONVERTER_IS_ON {
-            
-            inputUnitLabel.text = "ng"
-            outputUnitLabel.text = "ng"
-            
-        }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
-            
-            inputUnitLabel.text = "ml"
-            outputUnitLabel.text = "ml"
-            
-        }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
-            
-            inputUnitLabel.text = "°C"
-            outputUnitLabel.text = "°C"
-            
-        }else if Attributes.instance.TIME_CONVERTER_IS_ON {
-            
-            inputUnitLabel.text = "ns"
-            outputUnitLabel.text = "ns"
-            
-        }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
-            
-            inputUnitLabel.text = "m/s"
-            outputUnitLabel.text = "m/s"
-            
-        }
+        displayDefaultUnits()
         
         backToMenu()
         
@@ -117,6 +87,52 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        for txt in self.view.subviews {
+            if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
+                txt.resignFirstResponder()
+            }
+        }
+        
+    }
+    
+    func displayDefaultUnits() {
+        
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
+            
+            inputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY.first
+            
+        }else if Attributes.instance.MASS_CONVERTER_IS_ON {
+            
+            inputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY.first
+            
+        }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
+            
+            inputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY.first
+            
+        }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
+            
+            inputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY.first
+            
+        }else if Attributes.instance.TIME_CONVERTER_IS_ON {
+            
+            inputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY.first
+            
+        }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
+            
+            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY.first
+            outputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY.first
+            
+        }
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -130,32 +146,41 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             return Attributes.instance.DECIMAL_PLACE_ARRAY.count
             
         }else {
+           
+            return numRowOfSelectType()
+           
+        }
+    }
+    
+    func numRowOfSelectType() ->Int {
+        
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
             
-            if Attributes.instance.LENGTH_COVERTER_IS_ON {
-                
-              return LengthAttributes.instance.LENGTH_UNITS_ARRAY.count
-                
-            } else if Attributes.instance.MASS_CONVERTER_IS_ON {
-               
-              return MassAttributes.instance.MASS_UNITS_ARRAY.count
-                
-            } else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
-                
-                return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
+            return LengthAttributes.instance.LENGTH_UNITS_ARRAY.count
             
-            } else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
-                
-                return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
-                
-            } else if Attributes.instance.TIME_CONVERTER_IS_ON {
-                
-                return TimeAttributes.instance.TIME_UNITS_ARRAY.count
-                
-            }
+        } else if Attributes.instance.MASS_CONVERTER_IS_ON {
             
-            return SpeedAttributes.instance.SPEED_UNITS_RATIO.count
+            return MassAttributes.instance.MASS_UNITS_ARRAY.count
+            
+        } else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
+            
+            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
+            
+        } else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
+            
+            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
+            
+        } else if Attributes.instance.TIME_CONVERTER_IS_ON {
+            
+            return TimeAttributes.instance.TIME_UNITS_ARRAY.count
+            
+        } else if Attributes.instance.SPEED_CONVERTER_IS_ON {
+            
+            return SpeedAttributes.instance.SPEED_UNITS_ARRAY.count
             
         }
+        
+        return 0
         
     }
     
@@ -168,32 +193,41 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }
         else {
             
-            if Attributes.instance.LENGTH_COVERTER_IS_ON {
-                
-                return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
-                
-            }else if Attributes.instance.MASS_CONVERTER_IS_ON{
-                
-                return MassAttributes.instance.MASS_UNITS_ARRAY[row]
-                
-            }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
-                
-                return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
-                
-            }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
-                
-                 return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
-                
-            }
-            else if Attributes.instance.TIME_CONVERTER_IS_ON {
-                
-                return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
-                
-            }
-            
-            return SpeedAttributes.instance.SPEED_UNITS_RATIO[row]
+            return displaySelectTypeUnits(row: row)
             
         }
+    }
+    
+    func displaySelectTypeUnits(row: Int) -> String? {
+        
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
+            
+            return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
+            
+        } else if Attributes.instance.MASS_CONVERTER_IS_ON{
+            
+            return MassAttributes.instance.MASS_UNITS_ARRAY[row]
+            
+        } else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
+            
+            return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
+            
+        } else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
+            
+            return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
+            
+        } else if Attributes.instance.TIME_CONVERTER_IS_ON {
+            
+            return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
+            
+        } else if Attributes.instance.SPEED_CONVERTER_IS_ON {
+            
+            return SpeedAttributes.instance.SPEED_UNITS_ARRAY[row]
+            
+        }
+        
+        return ""
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -201,6 +235,13 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
+        
+        displaySelectTypeShort()
+        displayConversionResult()
+
+    }
+    
+    func displaySelectTypeShort() {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
             
@@ -229,21 +270,9 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
             
-            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[inputPickerIndex]
-            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[outputPickerIndex]
+            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY[inputPickerIndex]
+            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }
-     
-        displayConversionResult()
-
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        for txt in self.view.subviews {
-            if txt.isKind(of: UITextField.self) && txt.isFirstResponder {
-                txt.resignFirstResponder()
-            }
         }
         
     }
@@ -321,14 +350,14 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
                 convertResultUpToE.append(Attributes.instance.DECIMAL_POINT)
             }
             
-            while convertResultUpToE.count < decimalPlaceIndex + 2 {
+            while convertResultUpToE.count < decimalPlaceIndex + Attributes.instance.TWO {
                 convertResultUpToE.append("0")
             }
             
             convertResultUpToE = String(format: Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex], Double (convertResultUpToE)!)
             
            
-            let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + 2)
+            let converResultStringEndIndex = convertResultUpToE.index(convertResultString.startIndex, offsetBy: decimalPlaceIndex + Attributes.instance.TWO)
             
             let roundDecimal = convertResultUpToE[convertResultString.startIndex..<converResultStringEndIndex]
             
@@ -343,7 +372,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     func backToMenu(){
         MenuButton.target = self.revealViewController()
         MenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-        self.revealViewController().rearViewRevealWidth = 200
+        self.revealViewController().rearViewRevealWidth = Attributes.instance.REAR_VIEW_REVEAL_WIDTH
         
     view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
@@ -482,7 +511,7 @@ extension MixConvertViewController {
         case 0:
             
             switch outputPickerIndex {
-                
+              
             case 0:
                 convertResult = Double(userInput.text!)!
             case 1:
@@ -490,7 +519,7 @@ extension MixConvertViewController {
             case 2:
                 convertResult = Double(userInput.text!)! + 273.15
             default:
-                print("Not able to catch user selection")
+                print("Not able to catch user selection for Celsius")
                 
             }
             
@@ -506,7 +535,7 @@ extension MixConvertViewController {
                 convertResult = (Double(userInput.text!)! + 459.67) * 5.0 / 9
                 
             default:
-                print("Not able to catch user selection")
+                print("Not able to catch user selection for Fahrenheit")
             }
             
         case 2:
@@ -520,7 +549,7 @@ extension MixConvertViewController {
             case 2:
                 convertResult = Double(userInput.text!)!
             default:
-                print("Not able to catch user selection")
+                print("Not able to catch user selection for Kelvin")
                 
             }
             
@@ -570,19 +599,19 @@ extension MixConvertViewController {
         switch inputPickerIndex {
             
         case 0:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.METER_PER_SECOND[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.METER_PER_SECOND_RATIO[outputPickerIndex]
             
         case 1:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KILO_METER_PER_HOUR[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KILO_METER_PER_HOUR_RATIO[outputPickerIndex]
             
         case 2:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.FOOT_PER_SECOND[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.FOOT_PER_SECOND_RATIO[outputPickerIndex]
             
         case 3:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.MILE_PER_HOUR[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.MILE_PER_HOUR_RATIO[outputPickerIndex]
             
         case 4:
-            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KNOT[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * SpeedAttributes.instance.KNOT_RATIO[outputPickerIndex]
             
         default:
             print("Not able to catch user selection for Speed Convert")

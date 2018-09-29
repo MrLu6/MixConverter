@@ -10,6 +10,10 @@ import UIKit
 
 class Attributes {
     
+    let TWO = 2
+    //rearViewRevealWidth
+    let REAR_VIEW_REVEAL_WIDTH = CGFloat(150)
+    
     let EXPONENTSYMBOL = "e"
     
     let DECIMAL_POINT = "."
