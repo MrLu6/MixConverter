@@ -78,32 +78,32 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         displayResult.isEnabled = false
         decimalPlacePicker.selectRow(decimalPlaceIndex, inComponent: 0, animated: true)
         
-        if Attributes.instance.LENGTH_COVERT_IS_ON {
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
             
             inputUnitLabel.text = "nm"
             outputUnitLabel.text = "nm"
             
-        }else if Attributes.instance.MASS_CONVERT_IS_ON {
+        }else if Attributes.instance.MASS_CONVERTER_IS_ON {
             
             inputUnitLabel.text = "ng"
             outputUnitLabel.text = "ng"
             
-        }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+        }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
             
             inputUnitLabel.text = "ml"
             outputUnitLabel.text = "ml"
             
-        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+        }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
             
             inputUnitLabel.text = "°C"
             outputUnitLabel.text = "°C"
             
-        }else if Attributes.instance.TIME_CONVERT_IS_ON {
+        }else if Attributes.instance.TIME_CONVERTER_IS_ON {
             
             inputUnitLabel.text = "ns"
             outputUnitLabel.text = "ns"
             
-        }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+        }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
             
             inputUnitLabel.text = "m/s"
             outputUnitLabel.text = "m/s"
@@ -131,23 +131,23 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }else {
             
-            if Attributes.instance.LENGTH_COVERT_IS_ON {
+            if Attributes.instance.LENGTH_COVERTER_IS_ON {
                 
               return LengthAttributes.instance.LENGTH_UNITS_ARRAY.count
                 
-            } else if Attributes.instance.MASS_CONVERT_IS_ON {
+            } else if Attributes.instance.MASS_CONVERTER_IS_ON {
                
               return MassAttributes.instance.MASS_UNITS_ARRAY.count
                 
-            } else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+            } else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
                 
                 return VolumeAttributes.instance.VOLUME_UNITS_ARRAY.count
             
-            } else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+            } else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
                 
                 return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY.count
                 
-            } else if Attributes.instance.TIME_CONVERT_IS_ON {
+            } else if Attributes.instance.TIME_CONVERTER_IS_ON {
                 
                 return TimeAttributes.instance.TIME_UNITS_ARRAY.count
                 
@@ -168,24 +168,24 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }
         else {
             
-            if Attributes.instance.LENGTH_COVERT_IS_ON {
+            if Attributes.instance.LENGTH_COVERTER_IS_ON {
                 
                 return LengthAttributes.instance.LENGTH_UNITS_ARRAY[row]
                 
-            }else if Attributes.instance.MASS_CONVERT_IS_ON{
+            }else if Attributes.instance.MASS_CONVERTER_IS_ON{
                 
                 return MassAttributes.instance.MASS_UNITS_ARRAY[row]
                 
-            }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+            }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
                 
                 return VolumeAttributes.instance.VOLUME_UNITS_ARRAY[row]
                 
-            }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+            }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
                 
                  return TemperatureAttributes.instance.TEMPERATURE_UNITS_ARRAY[row]
                 
             }
-            else if Attributes.instance.TIME_CONVERT_IS_ON {
+            else if Attributes.instance.TIME_CONVERTER_IS_ON {
                 
                 return TimeAttributes.instance.TIME_UNITS_ARRAY[row]
                 
@@ -202,32 +202,32 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         outputPickerIndex = outputPicker.selectedRow(inComponent: 0)
         decimalPlaceIndex = decimalPlacePicker.selectedRow(inComponent: 0)
         
-        if Attributes.instance.LENGTH_COVERT_IS_ON {
+        if Attributes.instance.LENGTH_COVERTER_IS_ON {
             
             inputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = LengthAttributes.instance.LENGTH_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }else if Attributes.instance.MASS_CONVERT_IS_ON {
+        }else if Attributes.instance.MASS_CONVERTER_IS_ON {
             
             inputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = MassAttributes.instance.MASS_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+        }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
             
             inputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = VolumeAttributes.instance.VOLUME_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+        }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
             
             inputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = TemperatureAttributes.instance.TEMPERATURE_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }else if Attributes.instance.TIME_CONVERT_IS_ON {
+        }else if Attributes.instance.TIME_CONVERTER_IS_ON {
             
             inputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY[inputPickerIndex]
             outputUnitLabel.text = TimeAttributes.instance.TIME_UNITS_SHORT_ARRAY[outputPickerIndex]
             
-        }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+        }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
             
             inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[inputPickerIndex]
             inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_RATIO[outputPickerIndex]
@@ -268,17 +268,17 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
         }else {
             
-            if Attributes.instance.LENGTH_COVERT_IS_ON {
+            if Attributes.instance.LENGTH_COVERTER_IS_ON {
                 calLength()
-            }else if Attributes.instance.MASS_CONVERT_IS_ON {
+            }else if Attributes.instance.MASS_CONVERTER_IS_ON {
                 calMass()
-            }else if Attributes.instance.VOLUME_CONVERT_IS_ON {
+            }else if Attributes.instance.VOLUME_CONVERTER_IS_ON {
                 calVolume()
-            }else if Attributes.instance.TEMPERATRUE_CONVERT_IS_ON {
+            }else if Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON {
                 calTemperatrue()
-            }else if Attributes.instance.TIME_CONVERT_IS_ON {
+            }else if Attributes.instance.TIME_CONVERTER_IS_ON {
                 calTime()
-            }else if Attributes.instance.SPEED_CONVERT_IS_ON {
+            }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
                 calSpeed()
             }
            

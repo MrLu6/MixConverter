@@ -6,7 +6,7 @@
 //  Copyright © 2018 CHENGJUN LU. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class MenuTableViewController: UITableViewController {
     
@@ -17,67 +17,52 @@ class MenuTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: menuOption[indexPath.row], for: indexPath) as UITableViewCell
         
         cell.textLabel?.text = menuOption[indexPath.row]
+        
         return cell;
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 1 {
+        self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)
+        
+        enableSelectedConverter(indexPath: indexPath)
+        
+    }
+    
+    func enableSelectedConverter(indexPath: IndexPath) {
+        
+        switch indexPath.row {
+        
+        case 0:
+            Attributes.instance.disableAllConverter()
+        
+        case 1:
+            Attributes.instance.enableLengthConverter()
             
-            Attributes.instance.LENGTH_COVERT_IS_ON = true
-            Attributes.instance.MASS_CONVERT_IS_ON = false
-            Attributes.instance.VOLUME_CONVERT_IS_ON = false
-            Attributes.instance.TIME_CONVERT_IS_ON = false
-            Attributes.instance.SPEED_CONVERT_IS_ON = false
+        case 2:
+            Attributes.instance.enableMassConverter()
             
-        }else if indexPath.row == 2 {
+        case 3:
+            Attributes.instance.enableVolumeConverter()
             
-            Attributes.instance.MASS_CONVERT_IS_ON = true
-            Attributes.instance.LENGTH_COVERT_IS_ON = false
-            Attributes.instance.VOLUME_CONVERT_IS_ON = false
-            Attributes.instance.TIME_CONVERT_IS_ON = false
-            Attributes.instance.SPEED_CONVERT_IS_ON = false
+        case 4:
+            Attributes.instance.enableTemperatureConverter()
             
-        }else if indexPath.row == 3 {
+        case 5:
+            Attributes.instance.enableTimeConverter()
             
-            Attributes.instance.VOLUME_CONVERT_IS_ON = true
-            Attributes.instance.LENGTH_COVERT_IS_ON = false
-            Attributes.instance.MASS_CONVERT_IS_ON = false
-            Attributes.instance.TIME_CONVERT_IS_ON = false
-            Attributes.instance.SPEED_CONVERT_IS_ON = false
+        case 6:
+            Attributes.instance.enableSpeedConverter()
             
-        }else if indexPath.row == 4 {
-            
-            Attributes.instance.TEMPERATRUE_CONVERT_IS_ON = true
-            Attributes.instance.LENGTH_COVERT_IS_ON = false
-            Attributes.instance.MASS_CONVERT_IS_ON = false
-            Attributes.instance.VOLUME_CONVERT_IS_ON = false
-            Attributes.instance.TIME_CONVERT_IS_ON = false
-            Attributes.instance.SPEED_CONVERT_IS_ON = false
-            
-        } else if indexPath.row == 5 {
-            
-            Attributes.instance.TIME_CONVERT_IS_ON = true
-            Attributes.instance.LENGTH_COVERT_IS_ON = false
-            Attributes.instance.MASS_CONVERT_IS_ON = false
-            Attributes.instance.VOLUME_CONVERT_IS_ON = false
-            Attributes.instance.SPEED_CONVERT_IS_ON = false
-            
-            
-        }else if indexPath.row == 6 {
-            
-            Attributes.instance.SPEED_CONVERT_IS_ON = true
-            Attributes.instance.LENGTH_COVERT_IS_ON = false
-            Attributes.instance.MASS_CONVERT_IS_ON = false
-            Attributes.instance.VOLUME_CONVERT_IS_ON = false
-            Attributes.instance.TIME_CONVERT_IS_ON = false
+        default:
+            print("Error")
             
         }
         
-        self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)
     }
     
     

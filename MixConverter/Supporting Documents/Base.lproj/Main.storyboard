@@ -187,7 +187,7 @@
                         <viewLayoutGuide key="safeArea" id="xsv-W7-aEJ"/>
                     </view>
                     <navigationItem key="navigationItem" id="md2-3D-y6F">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="Hmn-Ja-hOS"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Hmn-Ja-hOS"/>
                     </navigationItem>
                     <connections>
                         <outlet property="menuButton" destination="Hmn-Ja-hOS" id="tAw-Gq-86l"/>
@@ -295,7 +295,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="CYw-7S-40t">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="bfS-dV-a4g"/>
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="bfS-dV-a4g"/>
                     </navigationItem>
                     <connections>
                         <outlet property="MenuButton" destination="bfS-dV-a4g" id="lu6-Mf-ksr"/>
