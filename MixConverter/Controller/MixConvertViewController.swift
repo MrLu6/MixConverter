@@ -339,7 +339,16 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         case 4:
             convertResult = Double(userInput.text!)! * VolumeAttributes.instance.CUBIC_FOOT_RATIO[outputPickerIndex]
         case 5:
-            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.OUNCE_RATIO[outputPickerIndex]
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_FLUID_OUNCE_RATIO[outputPickerIndex]
+        case 6:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_CUP_RATIO[outputPickerIndex]
+        case 7:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_PINT[outputPickerIndex]
+        case 8:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_QUART[outputPickerIndex]
+        case 9:
+            convertResult = Double(userInput.text!)! * VolumeAttributes.instance.US_LIQUID_GALLON[outputPickerIndex]
+       
 
         default:
             print("Not able to catch user selection")
