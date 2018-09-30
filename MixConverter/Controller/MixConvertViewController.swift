@@ -8,6 +8,10 @@
 
 import UIKit
 
+/**
+    This class handle all user interaction of MixConvertViewController.
+    Display the conversion result of corresponding type of unit converter based on user selection
+ */
 class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
     /// Use to hold conversion result base on user input and unit convert type with default value 0.00 in Double
@@ -66,15 +70,15 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     @IBOutlet weak var scientificNotationSwitchBtn: UISwitch!
     
     /**
-        This function react to scientificNotationSwitchBtn base on user selection,
-        change isScientific value base on the current state of switch button.
+     This function react to scientificNotationSwitchBtn base on user selection,
+     change isScientific value base on the current state of switch button.
      
-        ## Import Notes ##
-        1. Calling resignFirstResponder inside to dismiss number pad as user click
-           on the switch button.
-        2. Calling displayConversionResult() to display the convert value.
+     ## Import Notes ##
+     1. Calling resignFirstResponder inside to dismiss number pad as user click
+        on the switch button.
+     2. Calling displayConversionResult() to display the convert value.
      
-        - See Also: displayConversionResult()
+     - See Also: displayConversionResult().
      
     */
     @IBAction func scientificNotationSwitch(_ sender: UISwitch) {
@@ -95,7 +99,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function helps set up the default value when view is loaded
+     This function helps set up the default value when view is loaded.
      
      */
     override func viewDidLoad() {
@@ -125,7 +129,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function helps dismiss number pad when user tap outside form UITextField.
+     This function helps dismiss number pad when user tap outside form UITextField.
      
      */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -139,8 +143,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function handles the display of default unit type for both input and output
-        depends on the converter that selected by user.
+     This function handles the display of default unit type for both input and output
+     depends on the converter that selected by user.
      
      */
     func displayDefaultUnits() {
@@ -185,7 +189,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        - SeeAlso: numRowOfSelectType()
+     - SeeAlso: numRowOfSelectType().
      
     */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -202,10 +206,10 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function will return the number of rows for the component base on the convert
-        unit type whcih user selected.
+     This function will return the number of rows for the component base on the convert
+     unit type whcih user selected.
      
-        - Returns: The number of rows for the component.
+     - Returns: The number of rows for the component.
      
     */
     func numRowOfSelectType() ->Int {
@@ -241,7 +245,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-         - SeeAlso: displaySelectTypeUnits(row: Int)
+     - SeeAlso: displaySelectTypeUnits(row: Int)
  
     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -259,8 +263,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function will return the titile for row  base on the convert
-        unit type whcih user selected.
+     This function will return the titile for row  base on the convert
+     unit type whcih user selected.
      
      */
     func displaySelectTypeUnits(row: Int) -> String? {
@@ -297,14 +301,14 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     /**
      
-        ## Import Notes ##
-        1. Calling displaySelectTypeShort() to display the current selected input and output
-           unit type abbreviation.
-        2. Calling displayConversionResult() to display the conversion result base on user selection
-           of input and out put unit type
-        3. Calling resignFirstResponder inside to dismiss number pad as user tap on the pickerView.
-     
-        - See Also: displaySelectTypeShort() and displayConversionResult()
+     ## Import Notes ##
+     1. Calling displaySelectTypeShort() to display the current selected input and output
+       unit type abbreviation.
+     2. Calling displayConversionResult() to display the conversion result base on user selection
+       of input and out put unit type
+     3. Calling resignFirstResponder inside to dismiss number pad as user tap on the pickerView.
+ 
+     - See Also: displaySelectTypeShort() and displayConversionResult()
      
      */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
@@ -321,8 +325,8 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function will display the corresponding unity type in short for
-        both input and output unit. Also, it depends on which converter is on.
+     This function will display the corresponding unity type in short for
+     both input and output unit. Also, it depends on which converter is on.
  
     */
     func displaySelectTypeShort() {
@@ -362,10 +366,10 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function will display the conversion result base on the unit type, decimal place
-        and scientific notation which user selected.
+     This function will display the conversion result base on the unit type, decimal place
+     and scientific notation which user selected.
      
-        - See Also: calSelectTypeConversion())
+     - See Also: calSelectTypeConversion()).
      */
     func displayConversionResult(){
         
@@ -415,10 +419,10 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     
     /**
-        This function call the correspoing unit type conversion calcaulte function based on
-        enable converter check
+     This function call the correspoing unit type conversion calcaulte function based on
+     enable converter check.
      
-        - See Also: calLength(), calMass(), calVolume(), calTemperatrue(), calTime(), calSpeed()
+     - See Also: calLength(), calMass(), calVolume(), calTemperatrue(), calTime(), calSpeed().
      
      */
     func calSelectTypeConversion() {
@@ -440,9 +444,9 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-        This function will perform strig manipulation of conversion result.
-        It will separate the power of number first, then round the number
-        to the number of digt that user select in decimalPlacePickerView
+     This function will perform strig manipulation of conversion result.
+     It will separate the power of number first, then round the number
+     to the number of digt that user select in decimalPlacePickerView
      
     */
     func scientificModeConversion() -> String{
@@ -485,7 +489,12 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    /**
+     This function will perform action that go to the slide menu which gesture recognization.
+     
+     */
     func backToMenu(){
+        
         MenuButton.target = self.revealViewController()
         MenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         self.revealViewController().rearViewRevealWidth = Attributes.instance.REAR_VIEW_REVEAL_WIDTH
@@ -496,9 +505,15 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
 }
 
-//calculate unsimply unit conversion for all types
+/**
+    This extension of MixConvertViewController will hold all calculate methof of all unit type conversion.
+ */
 extension MixConvertViewController {
     
+    /**
+     This function perform calculation of different Length unit conersion.
+     
+    */
     func calLength() {
         
         switch inputPickerIndex {
@@ -542,6 +557,10 @@ extension MixConvertViewController {
         
     }
     
+    /**
+     This function perform calculation of different Mass unit conersion.
+     
+     */
     func calMass() {
         
         switch inputPickerIndex {
@@ -587,6 +606,10 @@ extension MixConvertViewController {
         
     }
     
+    /**
+     This function perform calculation of different Volume unit conersion.
+     
+     */
     func calVolume(){
         
         switch inputPickerIndex {
@@ -619,6 +642,10 @@ extension MixConvertViewController {
         
     }
     
+    /**
+     This function perform calculation of different Temperature unit conersion.
+     
+     */
     func calTemperatrue(){
         
         switch inputPickerIndex {
@@ -674,6 +701,10 @@ extension MixConvertViewController {
         
     }
     
+    /**
+     This function perform calculation of different Time unit conersion.
+     
+     */
     func calTime(){
         
         switch inputPickerIndex {
@@ -709,6 +740,10 @@ extension MixConvertViewController {
         
     }
     
+    /**
+     This function perform calculation of different Speed unit conersion.
+     
+     */
     func calSpeed(){
         
         switch inputPickerIndex {
@@ -736,6 +771,10 @@ extension MixConvertViewController {
     
 }
 
+/**
+ This extension of String perfrom valid double number check for all String.
+ 
+ */
 extension String {
     
     func isDouble() -> Bool {
@@ -748,7 +787,12 @@ extension String {
     
 }
 
+/**
+ This extension of Double enable the scientific model for all Double
+ 
+ */
 extension Double {
+    
     struct Number {
         static var formatter = NumberFormatter()
     }
