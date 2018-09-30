@@ -9,43 +9,74 @@
 import UIKit
 
 class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
-        
+    
+    /// Use to hold conversion result base on user input and unit convert type with default value 0.00 in Double
     var convertResult = 0.00
     
+    /// Use to hold conversion result base on user input and unit convert type in with default value 0.00 in String
     var convertResultString = String(0.00)
     
+    /// Index of inputPicker with default value 0
     var inputPickerIndex = 0
     
+    /// Index of outputPicker with default value 0
     var outputPickerIndex = 0
     
+    /// Index of decimalPlacePicker with default value 2
     var decimalPlaceIndex = 2
     
+    /// Scientific Notation Model Indicator
     var isScientific = false
     
+    /// Button which go back to the slide menu
     @IBOutlet weak var MenuButton: UIBarButtonItem!
     
+    /// User input TextField
     @IBOutlet weak var userInput: UITextField!
     
+    /**
+        This function calls displayConversionResult() to display the corresponding conversion result
+        as user input change.
+     */
     @IBAction func userInputChanged(_ sender: UITextField) {
         
        displayConversionResult()
         
     }
     
+    /// Conversion Result TextField
     @IBOutlet weak var displayResult: UITextField!
     
+    /// Use to display input type unit abbreviation
     @IBOutlet weak var inputUnitLabel: UILabel!
     
+    /// Use to display output type unit abbreviation
     @IBOutlet weak var outputUnitLabel: UILabel!
     
+    /// Use to hold user input unit type
     @IBOutlet weak var inputPicker: UIPickerView!
     
+    /// Use to hold unit type which user want to convert
     @IBOutlet weak var outputPicker: UIPickerView!
     
+    /// Use to hold the number of digit user want to round
     @IBOutlet weak var decimalPlacePicker: UIPickerView!
     
+    /// Switch on and off scientfic notation model
     @IBOutlet weak var scientificNotationSwitchBtn: UISwitch!
     
+    /**
+        This function react to scientificNotationSwitchBtn base on user selection,
+        change isScientific value base on the current state of switch button.
+     
+        ## Import Notes ##
+        1. Calling resignFirstResponder inside to dismiss number pad as user click
+           on the switch button.
+        2. Calling displayConversionResult() to display the convert value.
+     
+        - See Also: displayConversionResult()
+     
+    */
     @IBAction func scientificNotationSwitch(_ sender: UISwitch) {
         
         if sender.isOn {
@@ -57,11 +88,16 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             isScientific = false
             
         }
+        
         userInput.resignFirstResponder()
         displayConversionResult()
         
     }
     
+    /**
+        This function helps set up the default value when view is loaded
+     
+     */
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +124,10 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
        
     }
     
+    /**
+        This function helps dismiss number pad when user tap outside form UITextField.
+     
+     */
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for txt in self.view.subviews {
@@ -98,6 +138,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    /**
+        This function handles the display of default unit type for both input and output
+        depends on the converter that selected by user.
+     
+     */
     func displayDefaultUnits() {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
@@ -134,10 +179,15 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    /**
+        - SeeAlso: numRowOfSelectType()
+     
+    */
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         if pickerView.tag == 3 {
@@ -151,6 +201,13 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }
     }
     
+    /**
+        This function will return the number of rows for the component base on the convert
+        unit type whcih user selected.
+     
+        - Returns: The number of rows for the component.
+     
+    */
     func numRowOfSelectType() ->Int {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
@@ -183,6 +240,10 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    /**
+         - SeeAlso: displaySelectTypeUnits(row: Int)
+ 
+    */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
         if pickerView.tag == 3 {
@@ -197,6 +258,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }
     }
     
+    /**
+        This function will return the titile for row  base on the convert
+        unit type whcih user selected.
+     
+     */
     func displaySelectTypeUnits(row: Int) -> String? {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
@@ -229,6 +295,18 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    /**
+     
+        ## Import Notes ##
+        1. Calling displaySelectTypeShort() to display the current selected input and output
+           unit type abbreviation.
+        2. Calling displayConversionResult() to display the conversion result base on user selection
+           of input and out put unit type
+        3. Calling resignFirstResponder inside to dismiss number pad as user tap on the pickerView.
+     
+        - See Also: displaySelectTypeShort() and displayConversionResult()
+     
+     */
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         inputPickerIndex = inputPicker.selectedRow(inComponent: 0)
@@ -242,6 +320,11 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
     }
     
+    /**
+        This function will display the corresponding unity type in short for
+        both input and output unit. Also, it depends on which converter is on.
+ 
+    */
     func displaySelectTypeShort() {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
@@ -278,14 +361,23 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    /**
+        This function will display the conversion result base on the unit type, decimal place
+        and scientific notation which user selected.
+     
+        - See Also: calSelectTypeConversion())
+     */
     func displayConversionResult(){
         
+        //User input validation(user input must be a valid number).
         if (!userInput.text!.isDouble() && !userInput.text!.isEmpty ){
             
             displayResult.text = Attributes.instance.USER_INPUT_WARNING
             
-        }
+        } //Display the default conversion result(0.00).
         else if userInput.text!.isEmpty{
+            
+            //Show scientific notation if scientific model is enable.
             if isScientific{
                 
                 displayResult.text = Double(0).scientificStyle
@@ -301,15 +393,17 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             calSelectTypeConversion()
             
             convertResultString = String(convertResult)
-      
+            
+             //Show scientific notation if scientific model is enable.
             if isScientific {
                 
                 convertResultString = convertResult.scientificStyle
                 
-                displayResult.text = scientificToDecimal()
+                displayResult.text = scientificModeConversion()
 
             }else{
                 
+                //Round the conversion result to number of digit to that user select in the decimalPlacePickerView.
                 displayResult.text = String(format:Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex],convertResult)
                 
                 convertResult = Double(displayResult.text!)!
@@ -319,6 +413,14 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
+    
+    /**
+        This function call the correspoing unit type conversion calcaulte function based on
+        enable converter check
+     
+        - See Also: calLength(), calMass(), calVolume(), calTemperatrue(), calTime(), calSpeed()
+     
+     */
     func calSelectTypeConversion() {
         
         if Attributes.instance.LENGTH_COVERTER_IS_ON {
@@ -337,24 +439,36 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
     }
     
-    
-    func scientificToDecimal() -> String{
+    /**
+        This function will perform strig manipulation of conversion result.
+        It will separate the power of number first, then round the number
+        to the number of digt that user select in decimalPlacePickerView
+     
+    */
+    func scientificModeConversion() -> String{
         
+        // Get the index of exponentSymbol.
         if let eIndex = convertResultString.range(of: Attributes.instance.EXPONENTSYMBOL)?.lowerBound {
             
             let powerStartIndex = convertResultString.index(eIndex, offsetBy: 1)
+            
+            // Get the power of conversion result.
             let power = convertResultString[powerStartIndex..<convertResultString.endIndex]
             
+            // Get the number before the  exponentSymbol of the conversion result.
             var convertResultUpToE = String(convertResultString[..<eIndex])
             
+            // Add decimal point(.) the to number if it does not have one.
             if !convertResultUpToE.contains(Attributes.instance.DECIMAL_POINT){
                 convertResultUpToE.append(Attributes.instance.DECIMAL_POINT)
             }
             
+            // Add 0 to the end of the conversion result if it does not reach the number of digit which user want to round
             while convertResultUpToE.count < decimalPlaceIndex + Attributes.instance.TWO {
                 convertResultUpToE.append("0")
             }
             
+            // Round the conversion result to the number of digt that user select in decimalPlacePickerView.
             convertResultUpToE = String(format: Attributes.instance.DECIMAL_PLACE_FORMAT_ARRAY[decimalPlaceIndex], Double (convertResultUpToE)!)
             
            
@@ -362,6 +476,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
             
             let roundDecimal = convertResultUpToE[convertResultString.startIndex..<converResultStringEndIndex]
             
+            // Return conversion result in scientific format.
             return String(roundDecimal + Attributes.instance.EXPONENTSYMBOL + power)
             
         }
@@ -375,7 +490,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         MenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
         self.revealViewController().rearViewRevealWidth = Attributes.instance.REAR_VIEW_REVEAL_WIDTH
         
-    view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
     }
 
