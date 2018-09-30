@@ -53,6 +53,12 @@ class Attributes {
     /// User warning message
     let USER_INPUT_WARNING = "Your Input Is Not A Number"
     
+    /// Indicate Scientific Notation is Off in Text
+    let SCIENTIFIC_IS_OFF_TEXT = "Scientific Notation OFF"
+    
+    /// Indicate Scientific Notation is on in Text
+    let SCIENTIFIC_IS_ON_TEXT = "Scientific Notation ON"
+    
     /// Singleton - instance of Attributes()
     static let instance = Attributes()
     

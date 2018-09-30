@@ -57,6 +57,9 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     /// Use to display output type unit abbreviation
     @IBOutlet weak var outputUnitLabel: UILabel!
     
+    /// Display for user the current state off scientific Model
+    @IBOutlet weak var scientificNotationIndication: UILabel!
+    
     /// Use to hold user input unit type
     @IBOutlet weak var inputPicker: UIPickerView!
     
@@ -86,10 +89,12 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         if sender.isOn {
             
             isScientific = true
+            scientificNotationIndication.text = Attributes.instance.SCIENTIFIC_IS_ON_TEXT
             
         }else{
             
             isScientific = false
+            scientificNotationIndication.text = Attributes.instance.SCIENTIFIC_IS_OFF_TEXT
             
         }
         
