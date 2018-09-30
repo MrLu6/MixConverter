@@ -39,7 +39,6 @@ class MenuTableViewController: UITableViewController {
      - See Also: enableSelectedConverter(indexPath: IndexPath).
      
      */
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)
