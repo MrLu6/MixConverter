@@ -8,14 +8,22 @@
 
 import UIKit
 
+/**
+ This class handles all user interactions of MenuTableViewController.
+ Tap the cell on the slide menu to enter the corresponding type of converter.
+ */
 class MenuTableViewController: UITableViewController {
     
-    var menuOption = ["Home","Length", "Mass", "Volume", "Temperature", "Time", "Speed"]
+    let menuOption = ["Home", "Length", "Mass", "Volume", "Temperature", "Time", "Speed"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOption.count
     }
     
+    /**
+     This function will set up the cell and its cotent of the slide menu.
+     
+     */
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: menuOption[indexPath.row], for: indexPath) as UITableViewCell
@@ -25,6 +33,13 @@ class MenuTableViewController: UITableViewController {
         return cell;
     }
     
+    /**
+     This function will send user to the type of converter through the cells they tap.
+     
+     - See Also: enableSelectedConverter(indexPath: IndexPath).
+     
+     */
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.performSegue(withIdentifier: menuOption[indexPath.row], sender: self)
@@ -33,6 +48,13 @@ class MenuTableViewController: UITableViewController {
         
     }
     
+    /**
+     This function called the corresponding enableUnitConverter funcation to set values
+     of all unit converter indicator based on button which user tap.
+     
+     - See Also: All enable unti converter functions in Attributes.swift
+     
+     */
     func enableSelectedConverter(indexPath: IndexPath) {
         
         switch indexPath.row {
@@ -59,12 +81,10 @@ class MenuTableViewController: UITableViewController {
             Attributes.instance.enableSpeedConverter()
             
         default:
-            print("Error")
+            print("Not able to catch the indexPath row")
             
         }
         
     }
-    
-    
     
 }

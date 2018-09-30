@@ -8,10 +8,21 @@
 
 import UIKit
 
+/**
+ This class handles all user interactions of HomeViewController.
+ Enter the type of converter which user selected.
+ */
 class HomeViewController: UIViewController {
     
+    ///Button which go back to slide menu.
     @IBOutlet weak var menuButton: UIBarButtonItem!
 
+    /**
+     This function will send user to the type of converter through the buttons they tap.
+     
+      - See Also: enableSelectedConverter(sender: sender).
+     
+     */
     @IBAction func OpenConvertScreen(_ sender: UIButton) {
         
         let btnTitle = sender.currentTitle!
@@ -22,6 +33,11 @@ class HomeViewController: UIViewController {
         
     }
     
+    /**
+        This function will do some SWRevealViewController set up such as
+        rearViewRevealWidth(The display width of slide menu) and gestture
+        recognization.
+     */
     override func viewDidLoad() {
         
         menuButton.target = self.revealViewController()
@@ -32,6 +48,12 @@ class HomeViewController: UIViewController {
         
     }
     
+    /**
+     This function called the corresponding enableUnitConverter funcation to set values
+     of all unit converter indicator based on button which user tap.
+     
+        - See Also: All enable unti converter functions in Attributes.swift
+     */
     func enableSelectedConverter(sender: UIButton) {
         
         switch sender.tag {
@@ -55,7 +77,7 @@ class HomeViewController: UIViewController {
             Attributes.instance.enableSpeedConverter()
             
         default:
-            print("Error")
+            print("Not able to catch the button tag")
             
         }
         

@@ -9,8 +9,8 @@
 import UIKit
 
 /**
-    This class handle all user interaction of MixConvertViewController.
-    Display the conversion result of corresponding type of unit converter based on user selection
+    This class handles all user interactions of MixConvertViewController.
+    Display the conversion result of corresponding type of unit converter based on user selection.
  */
 class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate {
     
@@ -245,7 +245,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-     - SeeAlso: displaySelectTypeUnits(row: Int)
+     - SeeAlso: displaySelectTypeUnits(row: Int).
  
     */
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
