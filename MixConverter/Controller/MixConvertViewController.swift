@@ -495,7 +495,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     }
     
     /**
-     This function will perform action that go to the slide menu which gesture recognization.
+     This function will perform action that go to the slide menu whith gesture recognization.
      
      */
     func backToMenu(){
