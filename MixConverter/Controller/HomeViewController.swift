@@ -76,6 +76,9 @@ class HomeViewController: UIViewController {
         case 6:
             Attributes.instance.enableSpeedConverter()
             
+        case 7:
+            Attributes.instance.enableBitcoinConverter()
+            
         default:
             print("Not able to catch the button tag")
             

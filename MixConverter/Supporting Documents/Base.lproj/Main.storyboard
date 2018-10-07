@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h11-Eq-75J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h11-Eq-75J">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -112,6 +111,17 @@
                                     <segue destination="OzW-jr-vL9" kind="custom" identifier="Speed" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="g4s-Mh-UuZ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Bitcoin" id="kio-pb-rMw">
+                                <rect key="frame" x="0.0" y="336" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kio-pb-rMw" id="aAJ-Cx-iuq">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OqP-ho-M5s" kind="custom" identifier="Bitcoin" trigger="accessoryAction" customClass="SWRevealViewControllerSeguePushController" id="h0X-c5-Lpc"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="C0y-PE-Z4f" id="KgO-w0-ryG"/>
@@ -206,6 +216,18 @@
                                     <action selector="OpenConvertScreen:" destination="cpG-JK-Dvq" eventType="touchUpInside" id="bKa-Mf-ygR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPh-vn-aoH">
+                                <rect key="frame" x="137.5" y="533.5" width="100" height="100"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="iVr-UC-hvv"/>
+                                    <constraint firstAttribute="height" constant="100" id="xh5-9j-0nd"/>
+                                </constraints>
+                                <state key="normal" title="Bitcoin"/>
+                                <connections>
+                                    <action selector="OpenConvertScreen:" destination="cpG-JK-Dvq" eventType="touchUpInside" id="Rer-Ei-ALB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -215,12 +237,14 @@
                             <constraint firstItem="mKV-VX-SeE" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="25" id="H93-Ia-EAe"/>
                             <constraint firstItem="tu8-Dl-DN9" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="25" id="KjG-TE-LGn"/>
                             <constraint firstItem="yg6-he-Gx9" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="25" id="M19-qe-mJa"/>
+                            <constraint firstItem="EPh-vn-aoH" firstAttribute="centerX" secondItem="T0N-b8-Xff" secondAttribute="centerX" id="Ns5-4l-IUv"/>
                             <constraint firstItem="OPW-RD-Kop" firstAttribute="centerX" secondItem="T0N-b8-Xff" secondAttribute="centerX" constant="-105" id="SO7-3G-4MO"/>
                             <constraint firstItem="tu8-Dl-DN9" firstAttribute="centerX" secondItem="T0N-b8-Xff" secondAttribute="centerX" constant="105" id="Udv-cA-DKr"/>
                             <constraint firstItem="JRM-xf-FOf" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="-80" id="ZnG-43-eoY"/>
                             <constraint firstItem="yg6-he-Gx9" firstAttribute="centerX" secondItem="T0N-b8-Xff" secondAttribute="centerX" id="bnQ-fW-4k7"/>
                             <constraint firstItem="nmE-5G-CvH" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="-80" id="geP-yS-y2p"/>
                             <constraint firstItem="JRM-xf-FOf" firstAttribute="centerX" secondItem="T0N-b8-Xff" secondAttribute="centerX" id="nMq-AQ-Fgb"/>
+                            <constraint firstItem="EPh-vn-aoH" firstAttribute="centerY" secondItem="T0N-b8-Xff" secondAttribute="centerY" constant="250" id="pip-m9-uQy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xsv-W7-aEJ"/>
                     </view>
@@ -235,6 +259,53 @@
             </objects>
             <point key="canvasLocation" x="125.59999999999999" y="681.40929535232385"/>
         </scene>
+        <!--Bitcoin View Controller-->
+        <scene sceneID="T3C-YY-sVK">
+            <objects>
+                <viewController id="FYD-Ia-pky" customClass="BitcoinViewController" customModule="MixConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="SpE-aD-idM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-fa-utw">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="SpE-aD-idM" id="cnD-Dr-6dc"/>
+                                    <outlet property="delegate" destination="SpE-aD-idM" id="wUr-B1-WR8"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VF-dY-Ud4">
+                                <rect key="frame" x="44" y="249" width="293" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwg-ap-fl2">
+                                <rect key="frame" x="108" y="147" width="165" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rcO-ki-dtZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cOS-HA-mCb">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="AUw-jI-b2A"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="MenuButton" destination="AUw-jI-b2A" id="mEe-Qc-wlq"/>
+                        <outlet property="bitcoinPriceLabel" destination="9VF-dY-Ud4" id="I4z-ac-xVE"/>
+                        <outlet property="currencyPicker" destination="YGY-fa-utw" id="PJz-IB-2EO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JoK-sE-g81" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2720.8000000000002" y="-655.32233883058473"/>
+        </scene>
         <!--Mix Convert View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -244,7 +315,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" placeholder="Enter Amount" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="nq8-DA-Qhi">
-                                <rect key="frame" x="67" y="89" width="172" height="30"/>
+                                <rect key="frame" x="66.5" y="88.5" width="172" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="a7H-zq-ynY"/>
                                     <constraint firstAttribute="width" constant="172" id="gvS-yK-AOg"/>
@@ -257,7 +328,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0.00" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sk6-mQ-ctK">
-                                <rect key="frame" x="66" y="139" width="172" height="30"/>
+                                <rect key="frame" x="66.5" y="138.5" width="172" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="1jb-wH-LzH"/>
                                     <constraint firstAttribute="height" constant="30" id="DBK-94-GOV"/>
@@ -267,14 +338,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RW-Wn-Stk">
-                                <rect key="frame" x="0.0" y="303" width="184" height="162"/>
+                                <rect key="frame" x="0.5" y="302.5" width="184" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="3Cw-hY-aR4"/>
                                     <constraint firstAttribute="height" constant="162" id="D0n-3x-ILR"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scientific Notation Off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6S-xh-V3j">
-                                <rect key="frame" x="64" y="198" width="178" height="31"/>
+                                <rect key="frame" x="63.5" y="198" width="178" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="UUX-yc-5od"/>
                                     <constraint firstAttribute="height" constant="31" id="bTy-PB-lGl"/>
@@ -284,7 +355,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Round To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sj-Vv-8QJ">
-                                <rect key="frame" x="51" y="232" width="73" height="44"/>
+                                <rect key="frame" x="51" y="231.5" width="73" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="L9U-3i-bTt"/>
                                     <constraint firstAttribute="width" constant="73" id="YsD-S3-LHk"/>
@@ -301,14 +372,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kpc-UT-vyt">
-                                <rect key="frame" x="137" y="232" width="71" height="44"/>
+                                <rect key="frame" x="137" y="231.5" width="71" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="KKm-1R-N6y"/>
                                     <constraint firstAttribute="width" constant="71" id="uGd-Jr-0k7"/>
                                 </constraints>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lk-Hu-5ZQ">
-                                <rect key="frame" x="248" y="144" width="100" height="20"/>
+                                <rect key="frame" x="247.5" y="143.5" width="100" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="o2X-4I-aA1"/>
                                     <constraint firstAttribute="width" constant="100" id="szI-g2-DGz"/>
@@ -328,7 +399,7 @@
                                 </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="decimal place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-Ju-njN">
-                                <rect key="frame" x="235" y="232" width="106" height="44"/>
+                                <rect key="frame" x="234.5" y="231.5" width="106" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="106" id="5Ah-7E-6nf"/>
                                     <constraint firstAttribute="height" constant="44" id="zn0-Zd-d0p"/>
@@ -338,7 +409,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWJ-X3-9ml">
-                                <rect key="frame" x="247" y="94" width="100" height="20"/>
+                                <rect key="frame" x="247.5" y="93.5" width="100" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Dmc-S9-HjC"/>
                                     <constraint firstAttribute="width" constant="100" id="FKe-Ry-RJP"/>
@@ -348,7 +419,7 @@
                                 <color key="highlightedColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                             <pickerView tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wHl-oT-0jV">
-                                <rect key="frame" x="191" y="303" width="184" height="162"/>
+                                <rect key="frame" x="191" y="302.5" width="184" height="162"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="184" id="1IP-Vr-FEX"/>
                                     <constraint firstAttribute="height" constant="162" id="clL-rI-q6d"/>
@@ -437,6 +508,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehb-KY-uYi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1023" y="418"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BiC-U4-lQ7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OqP-ho-M5s" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eQ8-2E-i95">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="FYD-Ia-pky" kind="relationship" relationship="rootViewController" id="Txe-B9-1zo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bsI-TH-ebI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1781.5999999999999" y="-655.32233883058473"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

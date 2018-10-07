@@ -364,7 +364,7 @@ class MixConvertViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         }else if Attributes.instance.SPEED_CONVERTER_IS_ON {
             
             inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY[inputPickerIndex]
-            inputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY[outputPickerIndex]
+            outputUnitLabel.text = SpeedAttributes.instance.SPEED_UNITS_SHORT_ARRAY[outputPickerIndex]
             
         }
         

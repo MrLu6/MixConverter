@@ -14,7 +14,7 @@ import UIKit
  */
 class MenuTableViewController: UITableViewController {
     
-    let menuOption = ["Home", "Length", "Mass", "Volume", "Temperature", "Time", "Speed"]
+    let menuOption = ["Home", "Length", "Mass", "Volume", "Temperature", "Time", "Speed", "Bitcoin"]
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuOption.count
@@ -78,6 +78,9 @@ class MenuTableViewController: UITableViewController {
             
         case 6:
             Attributes.instance.enableSpeedConverter()
+        
+        case 7:
+            Attributes.instance.enableBitcoinConverter()
             
         default:
             print("Not able to catch the indexPath row")

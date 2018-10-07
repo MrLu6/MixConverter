@@ -19,12 +19,17 @@
 		E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */; };
 		E28B9E61215F4ADB006A1C7D /* TimeAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E60215F4ADB006A1C7D /* TimeAttributes.swift */; };
 		E28B9E63215F5BA0006A1C7D /* SpeedAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28B9E62215F5BA0006A1C7D /* SpeedAttributes.swift */; };
+		E29B18232169DDBC002ACF03 /* BitcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B18222169DDBC002ACF03 /* BitcoinViewController.swift */; };
 		E2C5F6FE215E008800DBAA38 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */; };
 		E2C5F700215E065C00DBAA38 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */; };
 		E2C5F702215E07C300DBAA38 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */; };
+		EC5F04F7ED181DBF35AC3BC3 /* Pods_MixConverter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC4AA4B61ECE45A51FBB22CE /* Pods_MixConverter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA5ED8E66E42AD7D8919B758 /* Pods-MixConverter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixConverter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixConverter/Pods-MixConverter.debug.xcconfig"; sourceTree = "<group>"; };
+		C404F46C55F42F47999D1335 /* Pods-MixConverter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixConverter.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixConverter/Pods-MixConverter.release.xcconfig"; sourceTree = "<group>"; };
+		DC4AA4B61ECE45A51FBB22CE /* Pods_MixConverter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixConverter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21D8CF5215906F60014B506 /* MixConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E21D8CF8215906F60014B506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E21D8CFA215906F60014B506 /* MixConvertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixConvertViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +44,7 @@
 		E28B9E5E215F3EB5006A1C7D /* TemperatureAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureAttributes.swift; sourceTree = "<group>"; };
 		E28B9E60215F4ADB006A1C7D /* TimeAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeAttributes.swift; sourceTree = "<group>"; };
 		E28B9E62215F5BA0006A1C7D /* SpeedAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedAttributes.swift; sourceTree = "<group>"; };
+		E29B18222169DDBC002ACF03 /* BitcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinViewController.swift; sourceTree = "<group>"; };
 		E2C5F6FB215E008600DBAA38 /* MixConverter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MixConverter-Bridging-Header.h"; sourceTree = "<group>"; };
 		E2C5F6FC215E008800DBAA38 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		E2C5F6FD215E008800DBAA38 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -51,18 +57,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC5F04F7ED181DBF35AC3BC3 /* Pods_MixConverter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		639E225DB24086DDEA75C788 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC4AA4B61ECE45A51FBB22CE /* Pods_MixConverter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E21D8CEC215906F60014B506 = {
 			isa = PBXGroup;
 			children = (
 				E21D8CF7215906F60014B506 /* MixConverter */,
 				E21D8D04215906F80014B506 /* Info.plist */,
 				E21D8CF6215906F60014B506 /* Products */,
+				F737AD55CCDAAA24D4A104E3 /* Pods */,
+				639E225DB24086DDEA75C788 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +129,7 @@
 				E21D8CFA215906F60014B506 /* MixConvertViewController.swift */,
 				E2C5F6FF215E065C00DBAA38 /* HomeViewController.swift */,
 				E2C5F701215E07C300DBAA38 /* MenuTableViewController.swift */,
+				E29B18222169DDBC002ACF03 /* BitcoinViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +148,15 @@
 			path = "Supporting Documents";
 			sourceTree = "<group>";
 		};
+		F737AD55CCDAAA24D4A104E3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA5ED8E66E42AD7D8919B758 /* Pods-MixConverter.debug.xcconfig */,
+				C404F46C55F42F47999D1335 /* Pods-MixConverter.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +164,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E21D8D07215906F80014B506 /* Build configuration list for PBXNativeTarget "MixConverter" */;
 			buildPhases = (
+				D94F06B3599B256C42B67B0A /* [CP] Check Pods Manifest.lock */,
 				E21D8CF1215906F60014B506 /* Sources */,
 				E21D8CF2215906F60014B506 /* Frameworks */,
 				E21D8CF3215906F60014B506 /* Resources */,
+				EEC8F41EFA6BC18A0A9CE68A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -197,6 +226,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D94F06B3599B256C42B67B0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MixConverter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EEC8F41EFA6BC18A0A9CE68A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MixConverter/Pods-MixConverter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixConverter/Pods-MixConverter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E21D8CF1215906F60014B506 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -213,6 +291,7 @@
 				E28B9E63215F5BA0006A1C7D /* SpeedAttributes.swift in Sources */,
 				E28B9E61215F4ADB006A1C7D /* TimeAttributes.swift in Sources */,
 				E28B9E5D215F0E52006A1C7D /* VolumeAttributes.swift in Sources */,
+				E29B18232169DDBC002ACF03 /* BitcoinViewController.swift in Sources */,
 				E28B9E5F215F3EB5006A1C7D /* TemperatureAttributes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,12 +434,14 @@
 		};
 		E21D8D08215906F80014B506 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA5ED8E66E42AD7D8919B758 /* Pods-MixConverter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WB36NUBE5M;
 				INFOPLIST_FILE = MixConverter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -376,12 +457,14 @@
 		};
 		E21D8D09215906F80014B506 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C404F46C55F42F47999D1335 /* Pods-MixConverter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WB36NUBE5M;
 				INFOPLIST_FILE = MixConverter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -50,6 +50,9 @@ class Attributes {
     /// Speed converter enable indicator
     var SPEED_CONVERTER_IS_ON = false
     
+    /// Bitcoin converter enable indicator
+    var Bitcoin_CONVERTER_IS_ON = false
+    
     /// User warning message
     let USER_INPUT_WARNING = "Your Input Is Not A Number"
     
@@ -75,6 +78,7 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = false
         Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
         
     }
     
@@ -91,6 +95,7 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = false
         Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
         
     }
     
@@ -107,6 +112,7 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = false
         Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
         
     }
     
@@ -123,6 +129,7 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = true
         Attributes.instance.TIME_CONVERTER_IS_ON = false
         Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
         
     }
     
@@ -139,6 +146,7 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = true
         Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
         
     }
     
@@ -155,6 +163,24 @@ class Attributes {
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = false
         Attributes.instance.SPEED_CONVERTER_IS_ON = true
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = false
+        
+    }
+    
+    /**
+     This function will enable speed converter by setting speed converter enable indicator
+     to true and rest of converter enable indicators to false
+     
+     */
+    func enableBitcoinConverter() {
+        
+        Attributes.instance.LENGTH_COVERTER_IS_ON = false
+        Attributes.instance.MASS_CONVERTER_IS_ON = false
+        Attributes.instance.VOLUME_CONVERTER_IS_ON = false
+        Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
+        Attributes.instance.TIME_CONVERTER_IS_ON = false
+        Attributes.instance.SPEED_CONVERTER_IS_ON = false
+        Attributes.instance.Bitcoin_CONVERTER_IS_ON = true
         
     }
     
@@ -169,7 +195,7 @@ class Attributes {
         Attributes.instance.VOLUME_CONVERTER_IS_ON = false
         Attributes.instance.TEMPERATRUE_CONVERTER_IS_ON = false
         Attributes.instance.TIME_CONVERTER_IS_ON = false
-        Attributes.instance.SPEED_CONVERTER_IS_ON = true
+        Attributes.instance.SPEED_CONVERTER_IS_ON = false
         
     }
 
