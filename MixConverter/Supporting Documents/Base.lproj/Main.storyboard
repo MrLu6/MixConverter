@@ -267,30 +267,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-fa-utw">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwg-ap-fl2">
+                                <rect key="frame" x="105" y="171.5" width="165" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="Dvi-H0-wCI"/>
+                                    <constraint firstAttribute="width" constant="165" id="rNj-BM-Qia"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VF-dY-Ud4">
+                                <rect key="frame" x="41" y="291.5" width="293" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="Ikf-g7-qng"/>
+                                    <constraint firstAttribute="width" constant="293" id="owo-OU-Pgb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGY-fa-utw">
+                                <rect key="frame" x="0.0" y="440.5" width="375" height="216"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="Pgt-Xl-y3U"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="ZKM-81-nw1"/>
+                                </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="SpE-aD-idM" id="cnD-Dr-6dc"/>
                                     <outlet property="delegate" destination="SpE-aD-idM" id="wUr-B1-WR8"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Price" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VF-dY-Ud4">
-                                <rect key="frame" x="44" y="249" width="293" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="38"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bitcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwg-ap-fl2">
-                                <rect key="frame" x="108" y="147" width="165" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="53"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9VF-dY-Ud4" firstAttribute="centerY" secondItem="SpE-aD-idM" secondAttribute="centerY" id="4tr-9b-dQ4"/>
+                            <constraint firstItem="9VF-dY-Ud4" firstAttribute="centerX" secondItem="SpE-aD-idM" secondAttribute="centerX" id="IQD-aD-SFE"/>
+                            <constraint firstItem="rwg-ap-fl2" firstAttribute="centerX" secondItem="SpE-aD-idM" secondAttribute="centerX" id="IeU-GF-w2G"/>
+                            <constraint firstItem="YGY-fa-utw" firstAttribute="centerY" secondItem="SpE-aD-idM" secondAttribute="centerY" constant="215" id="R0A-10-vl3"/>
+                            <constraint firstItem="rwg-ap-fl2" firstAttribute="centerY" secondItem="SpE-aD-idM" secondAttribute="centerY" constant="-120" id="ehF-VP-cFy"/>
+                            <constraint firstItem="YGY-fa-utw" firstAttribute="centerX" secondItem="SpE-aD-idM" secondAttribute="centerX" id="kvw-e3-dmO"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="rcO-ki-dtZ"/>
                     </view>
                     <navigationItem key="navigationItem" id="cOS-HA-mCb">
